@@ -1,0 +1,20 @@
+What do I want to learn or understand better?
+A. Nothing new this week, we are still looking for a project. 
+B. I want to know what our project will be so I can start focusing on my tasks in the group.
+A->B. We will try to have a meeting with a customer next week and hopefully have a project.
+
+How can I help someone else, or the entire team, to learn something new?
+A. There haven't been any chances of learning something new, we need a project first.
+B. I will help the team with my knowledge when we have a project.
+A->B. I will attend next week's meetings and be active in trying to find a project.
+
+What is my contribution towards the team’s use of Scrum?
+A. This weeks sprint has only been focusing on finding a project.
+B. We need a project.
+A->B. We will be looking for a project.
+
+
+What is my contribution towards the team’s deliveries?
+A. I have tried to find a customer with a project.
+B. We need a project.
+A->B. Continue to look for a project.
