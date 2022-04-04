@@ -6,3 +6,18 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+
+# Default ignored files
+/shelf/
+/.idea/workspace.xml
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Maven
+log/
+target/
+.idea/libraries/lib.xml
+
