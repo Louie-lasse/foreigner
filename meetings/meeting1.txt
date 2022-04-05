@@ -1,0 +1,21 @@
+Första mötet
+
+Vad papperskorgarna kan ge för info:
+-koordinater GPS
+-mängd skräp
+-hur ofta den är tömd
+-senast tömd
+-om den är trasig
+
+Vi skall få inlogg till API av de. 
+
+Skall tömmas vid 60% fyllnad.
+ 
+Appen just nu:
+Appen kan visa endast papperskorgar som skall tömmas dvs >60% men man kan även visa alla korgar. 
+Problemet är att korgar töms som inte borde. Miljö problem!! Kart-vy där nålar visa korgarnas position. 
+
+De smarta papperskorgarna kallas för Big bellys.?
+
+Vår uppgift blir att beräkna kortaste rutten mellan de som ska tömmas. 
+Men hon vill inte att vi skulle glömma att “Be wild and crazy!” :)
