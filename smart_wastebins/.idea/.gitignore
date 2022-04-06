@@ -12,12 +12,12 @@
 /.idea/workspace.xml
 
 # Intellij
-**/.idea/
+**/.idea/**
 *.iml
 *.iws
 
 # Maven
 log/
-target/
+/target/**
 .idea/libraries/lib.xml
 
