@@ -4,9 +4,9 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        Wastebin bin1 = new Wastebin(57, 12, 0.5);
-        Wastebin bin2 = new Wastebin(57, 12, 0.8);
-        Wastebin bin3 = new Wastebin(57, 12, 0.07);
+        Wastebin bin1 = new Wastebin(57.6, 12.12312, 0.5);
+        Wastebin bin2 = new Wastebin(57.4, 12.341, 0.8);
+        Wastebin bin3 = new Wastebin(57.3, 12, 0.07);
         List<Wastebin> wastebins = new ArrayList<>();
         wastebins.add(bin1);
         wastebins.add(bin2);
