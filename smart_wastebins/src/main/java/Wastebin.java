@@ -2,9 +2,9 @@ import java.awt.*;
 
 public class Wastebin {
     private double fullness;
-    private Point coordinates = new Point(0, 0);
+    private Coord coordinates = new Coord(0, 0);
 
-    public Wastebin(int longitude, int latitude, double fullness) {
+    public Wastebin(double longitude, double latitude, double fullness) {
         setFullness(fullness);
         setCoordinates(longitude, latitude);
     }
@@ -21,14 +21,14 @@ public class Wastebin {
         }
     }
 
-    public Point getCoordinates() {
-        Point temp;
+    public Coord getCoordinates() {
+        Coord temp;
         temp = coordinates;
         return temp;
     }
 
-    public void setCoordinates(int longitude, int latitude) {
-        coordinates.x = longitude;
-        coordinates.y = latitude;
+    public void setCoordinates(double longitude, double latitude) {
+        coordinates.setX(longitude);
+        coordinates.setY(latitude);
     }
 }
