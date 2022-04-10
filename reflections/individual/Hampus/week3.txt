@@ -1,0 +1,21 @@
+What do I want to learn or understand better?
+A. We got access to the API this week, the data seems to be in .CSV, I know how to work with .CSV in Python.
+B. I would like to know how to work with .CSV i Java, since our project will be written in Java.
+A->B. Educate myself on how to work with .CSV in Java with Google and Youtube.
+
+How can I help someone else, or the entire team, to learn something new?
+A. I have helped a group member install and understand Maven.
+B. I am satisifed with my contribution this week.
+A->B.  -
+
+What is my contribution towards the team’s use of Scrum?
+A. I have attended two meetings where we planned this weeks sprint and implemented user stories.
+B. I think that we had a successfull sprint and am satisfied with my contribution.
+A->B. -
+
+What is my contribution towards the team’s deliveries?
+A. I have attended a metting with the customer where we discussed how they want the result to be.
+B. The customer couldn't bring their boss which have a better knowledge of the project.
+A->B. After the easter-break we will have a meeting with the customer and their boss.
+
+*customer ska vara det ordet jag inte kommer på just nu (ej scrum master, nästa nivå)
