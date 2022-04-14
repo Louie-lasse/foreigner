@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="49033902-c6c2-41d9-a589-4ae49540db14" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/foreigner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/foreigner.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart_wastebins/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart_wastebins/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart_wastebins/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart_wastebins/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart_wastebins/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart_wastebins/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart_wastebins/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart_wastebins/src/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart_wastebins/src/main/java/Coord.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart_wastebins/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart_wastebins/src/main/java/Wastebin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart_wastebins/src/main/resources/tmp.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/smart_wastebins/src/test/java/tmp_test.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="27eZcUQG9Uq0qPi5SL0DU0B3XCL" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/smart_wastebins" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.23908046" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\lovel\agile\foreigner\smart_wastebins" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lovel\agile\foreigner" />
+      <recent name="C:\Users\lovel\agile\foreigner\smart_wastebins\Springboot-backend\src\main\java" />
+      <recent name="C:\Users\lovel\agile\foreigner\smart_wastebins\Springboot-backend\src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="SmartWastebinsApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="spring.smart_wastebins.SmartWastebinsApplication" />
+      <module name="foreigner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="spring.smart_wastebins.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.SmartWastebinsApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="49033902-c6c2-41d9-a589-4ae49540db14" name="Changes" comment="" />
+      <created>1649682599157</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1649682599157</updated>
+      <workItem from="1649682604930" duration="1678000" />
+      <workItem from="1649751350253" duration="700000" />
+      <workItem from="1649768885188" duration="15000" />
+      <workItem from="1649933326937" duration="1251000" />
+      <workItem from="1649936279916" duration="327000" />
+      <workItem from="1649936967170" duration="284000" />
+      <workItem from="1649937260798" duration="58000" />
+      <workItem from="1649937347510" duration="435000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
