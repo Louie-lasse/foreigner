@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="49033902-c6c2-41d9-a589-4ae49540db14" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/foreigner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/foreigner.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart_wastebins/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart_wastebins/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart_wastebins/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart_wastebins/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart_wastebins/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart_wastebins/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart_wastebins/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart_wastebins/src/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart_wastebins/src/main/java/Coord.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart_wastebins/src/main/java/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart_wastebins/src/main/java/Wastebin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart_wastebins/src/main/resources/tmp.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/smart_wastebins/src/test/java/tmp_test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
