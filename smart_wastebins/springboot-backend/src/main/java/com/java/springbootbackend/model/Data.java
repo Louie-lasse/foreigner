@@ -14,6 +14,7 @@ public class Data {
         cans = new ArrayList<>();
         cans.add(new WasteBin(36,51.4, 0.3));
         cans.add(new WasteBin(36.2,50.9, 0.74));
+        cans.add(new WasteBin(45, 56.3, 0.21));
     }
     
     public static Data getInstance() {
