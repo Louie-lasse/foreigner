@@ -1,0 +1,24 @@
+Account: Göteborg PONF
+User: Victor H, Projekt
+Generated On: 04/18/2022
+Filters: 
+Streams: All
+Groups: All
+Ordered Route: All
+Door Lock: All
+
+"Description","Serial","Reason","Component","Age","Door Lock Type","Order"
+"Kastajen","1522819","Fullness - 100%","CENTER  (Waste)","7 days","Manual",""
+"Positivparken","1510519","Fullness - 100%","CENTER  (Waste)","12 days","Manual",""
+"Trädgårdsföreningen - Glasskiosken","1511418","Fullness - 100%","CENTER  (Waste)","1 days","Manual",""
+"Domkyrkan","1514220","Alert","CENTER  (Waste)","65 days","Manual",""
+"Hagaparken 2","1520240","Alert","CENTER  (Waste)","< 1 days","Manual",""
+"Bondegärdet","1522769","Fullness - 80%","CENTER  (Waste)","34 days","Manual",""
+"Bältesspännarparken","1522264","Fullness - 80%","CENTER  (Waste)","< 1 days","Manual",""
+"Domkyrkan 2","1510537","Fullness - 60%","CENTER  (Waste)","1 days","Manual",""
+"Heden Lekplats","1522748","Fullness - 60%","CENTER  (Waste)","8 days","Manual",""
+"Kungstorget","1510469","Fullness - 80%","CENTER  (Waste)","34 days","Manual",""
+"Odinsplatsen","1509756","Fullness - 80%","CENTER  (Waste)","1 days","Manual",""
+"Trädgårdsföreningen - Alfons Åberg","1510883","Fullness - 80%","CENTER  (Waste)","1 days","Manual",""
+"Trädgårdsföreningen - Klättraren","1520216","Fullness - 40%","CENTER  (Waste)","1 days","Manual",""
+"Trädgårdsföreningen - Lekplatsen","1520187","Fullness - 60%","CENTER  (Waste)","1 days","Manual",""
