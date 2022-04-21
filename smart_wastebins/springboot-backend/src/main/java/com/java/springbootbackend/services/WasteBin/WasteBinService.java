@@ -1,4 +1,4 @@
-package com.java.springbootbackend.service;
+package com.java.springbootbackend.services.WasteBin;
 
 import com.java.springbootbackend.model.WasteBin;
 

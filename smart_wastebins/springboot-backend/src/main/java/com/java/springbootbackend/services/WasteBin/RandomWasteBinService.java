@@ -1,15 +1,12 @@
-package com.java.springbootbackend.service;
+package com.java.springbootbackend.services.WasteBin;
 
 import com.java.springbootbackend.model.WasteBin;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Random;
 
-class RandomWasteBinService extends WasteBinService{
-
-    private static RandomWasteBinService instance;
+class RandomWasteBinService extends WasteBinService {
 
     private final List<WasteBin> wasteBins;
 

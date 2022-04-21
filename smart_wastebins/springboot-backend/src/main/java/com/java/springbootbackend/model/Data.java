@@ -1,5 +1,5 @@
 package com.java.springbootbackend.model;
-import com.java.springbootbackend.service.WasteBinService;
+import com.java.springbootbackend.services.WasteBin.WasteBinService;
 
 import java.util.List;
 import java.util.Objects;
