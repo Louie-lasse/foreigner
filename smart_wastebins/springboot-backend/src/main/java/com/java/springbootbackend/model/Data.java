@@ -12,7 +12,7 @@ public class Data {
     private static Data instance;
 
     private Data(){
-        cans = WasteBinService.getService().getWasteBins();
+        cans = WasteBinService.getImplementation().getWasteBins();
     }
     
     public static Data getInstance() {
