@@ -10,7 +10,7 @@ public class BasicPathFinder extends PathFinderService {
 
 
     @Override
-    protected List<Coord> calculatePath(Map<? extends Coord, ? extends Node> map) {
+    protected List<Coord> calculatePath(Map<? extends Coord, ? extends Node> map, Coord start) {
         throw new RuntimeException("Not implemented yet");
     }
 }

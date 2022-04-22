@@ -18,10 +18,10 @@ public abstract class PathFinderService {
         return implementation;
     }
 
-    public List<Coord> findPath(Map<? extends Coord, ? extends Node> map) {
-        return getImplementation().calculatePath(map);
+    public List<Coord> findPath(Map<? extends Coord, ? extends Node> map, Coord start) {
+        return getImplementation().calculatePath(map, start);
     }
 
-    protected abstract List<Coord> calculatePath(Map<? extends Coord, ? extends Node> map);
+    protected abstract List<Coord> calculatePath(Map<? extends Coord, ? extends Node> map, Coord start);
 
 }

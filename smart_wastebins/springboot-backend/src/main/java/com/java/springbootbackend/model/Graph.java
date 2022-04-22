@@ -12,7 +12,10 @@ public class Graph {
 
     private final Map<Coord, Node> nodes;
 
-    public Graph(List<Coord> coords) {
+    private Coord start;
+
+    public Graph(List<Coord> coords, Coord start) {
+        this.start = start;
         WeightService weightService = WeightService.getImplementation();
         nodes = new HashMap<>();
         Node node;
@@ -31,7 +34,7 @@ public class Graph {
 
     public List<Coord> shortestPath() {
         PathFinderService pf = PathFinderService.getImplementation();
-        return pf.findPath(nodes);
+        return pf.findPath(nodes, start);
     }
 
 }
