@@ -6,14 +6,18 @@ import java.util.Objects;
 
 public abstract class WeightService {
 
-    private static WeightService service;
+    private static WeightService implementation;
 
-    public static WeightService getService(){
-        if (Objects.isNull(service)){
-            service = new BasicWeightService();
+    public static WeightService getImplementation() {
+        if (Objects.isNull(implementation)) {
+            implementation = new BasicWeightService();
         }
-        return service;
+        return implementation;
     }
 
-    public abstract double calculateWeight(Coord c1, Coord c2);
+    public double calculateWeight(Coord c1, Coord c2) {
+        return getImplementation().calculate(c1, c2);
+    }
+
+    protected abstract double calculate(Coord c1, Coord c2);
 }

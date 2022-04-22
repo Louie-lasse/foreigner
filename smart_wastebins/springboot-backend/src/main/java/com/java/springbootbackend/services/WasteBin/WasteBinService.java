@@ -7,14 +7,18 @@ import java.util.Objects;
 
 public abstract class WasteBinService {
 
-    private static WasteBinService service;
+    private static WasteBinService implementation;
 
-    public static WasteBinService getService(){
-        if (Objects.isNull(service)){
-            service = new RandomWasteBinService();
+    public static WasteBinService getImplementation(){
+        if (Objects.isNull(implementation)){
+            implementation = new RandomWasteBinService();
         }
-        return service;
+        return implementation;
     }
 
-    public abstract List<WasteBin> getWasteBins();
+    public List<WasteBin> getWasteBins(){
+        return getImplementation().getAllBins();
+    }
+
+    protected abstract List<WasteBin> getAllBins();
 }
