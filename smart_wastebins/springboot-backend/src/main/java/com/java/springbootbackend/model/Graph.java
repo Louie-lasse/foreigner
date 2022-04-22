@@ -11,7 +11,7 @@ public class Graph {
     private final Map<Coord, Node> nodes;
 
     public Graph(List<Coord> coords){
-        WeightService weightService = WeightService.getService();
+        WeightService weightService = WeightService.getImplementation();
         nodes = new HashMap<>();
         Node node;
         double weight;
