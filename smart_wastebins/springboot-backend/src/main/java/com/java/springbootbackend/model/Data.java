@@ -1,5 +1,5 @@
 package com.java.springbootbackend.model;
-import com.java.springbootbackend.service.WasteBinService;
+import com.java.springbootbackend.services.WasteBin.WasteBinService;
 
 import java.util.List;
 import java.util.Objects;
@@ -12,7 +12,7 @@ public class Data {
     private static Data instance;
 
     private Data(){
-        cans = WasteBinService.getService().getWasteBins();
+        cans = WasteBinService.getImplementation().getWasteBins();
     }
     
     public static Data getInstance() {
