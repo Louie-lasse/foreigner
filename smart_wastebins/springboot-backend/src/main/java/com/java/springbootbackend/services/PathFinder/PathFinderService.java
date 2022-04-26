@@ -2,6 +2,7 @@ package com.java.springbootbackend.services.PathFinder;
 
 import com.java.springbootbackend.model.Coord;
 import com.java.springbootbackend.model.Node;
+import com.java.springbootbackend.model.Pair;
 
 import java.util.List;
 import java.util.Map;
@@ -18,10 +19,10 @@ public abstract class PathFinderService {
         return implementation;
     }
 
-    public List<Coord> findPath(Map<? extends Coord, ? extends Node> map, Coord start) {
+    public Pair<Double, List<Coord>> findPath(Map<? extends Coord, ? extends Node> map, Coord start) {
         return getImplementation().calculatePath(map, start);
     }
 
-    protected abstract List<Coord> calculatePath(Map<? extends Coord, ? extends Node> map, Coord start);
+    protected abstract Pair<Double, List<Coord>> calculatePath(Map<? extends Coord, ? extends Node> map, Coord start);
 
 }

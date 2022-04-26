@@ -8,6 +8,7 @@ public class Coord {
         this.x = x;
         this.y = y;
     }
+
     public double getX() {
         double tmp;
         tmp = this.x;
@@ -15,7 +16,7 @@ public class Coord {
     }
 
     public void setX(double x) {
-        if(x >= -180 && 180 >= x) {
+        if (x >= -180 && 180 >= x) {
             this.x = x;
         }
     }
@@ -27,8 +28,19 @@ public class Coord {
     }
 
     public void setY(double y) {
-        if(y <= 90 && -90 <= y) {
+        if (y <= 90 && -90 <= y) {
             this.y = y;
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) {
+            return true;
+        }
+        if (!(o instanceof Coord other)) {
+            return false;
+        }
+        return getX() == other.getX() && getY() == other.getY();
     }
 }
