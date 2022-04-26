@@ -1,6 +1,7 @@
 package com.java.springbootbackend.model;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Node {
@@ -18,6 +19,14 @@ public class Node {
     }
 
     public void addEdge(Coord c, double w) {
-        edges.add(new Edge(c,w));
+        edges.add(new Edge(c, w));
+    }
+
+    public void sort(Comparator<Edge> comparator) {
+        edges.sort(comparator);
+    }
+
+    public List<Edge> getEdges() {
+        return new ArrayList<>(edges);
     }
 }

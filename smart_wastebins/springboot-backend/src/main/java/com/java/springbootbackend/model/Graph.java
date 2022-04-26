@@ -20,6 +20,7 @@ public class Graph {
         nodes = new HashMap<>();
         Node node;
         double weight;
+        coords.add(start);
         for (Coord c : coords) {
             node = new Node(c);
             for (Coord other : coords) {
@@ -32,7 +33,7 @@ public class Graph {
         }
     }
 
-    public List<Coord> shortestPath() {
+    public Pair<Double, List<Coord>> shortestPath() {
         PathFinderService pf = PathFinderService.getImplementation();
         return pf.findPath(nodes, start);
     }
