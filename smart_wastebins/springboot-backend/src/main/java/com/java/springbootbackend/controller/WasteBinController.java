@@ -25,6 +25,10 @@ public class WasteBinController {
 
     @GetMapping("/{amount}")
     public List<WasteBin> getBins(@PathVariable(value = "amount") int amount) {
+        if (amount > getAllWasteBins().size()) {
+            return getAllWasteBins();
+        }
+
         List<WasteBin> temp = new ArrayList<>();
         for (int i = 0; i < amount; i++) {
             temp.add(getAllWasteBins().get(i));
