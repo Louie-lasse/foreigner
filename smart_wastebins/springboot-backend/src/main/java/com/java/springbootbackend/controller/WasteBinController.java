@@ -25,7 +25,7 @@ public class WasteBinController {
 
     @GetMapping("/{amount}")
     public List<WasteBin> getBins(@PathVariable(value = "amount") int amount) {
-        if (amount > getAllWasteBins().size()) {
+        if (amount > getAllWasteBins().size() || amount < 0) {
             return getAllWasteBins();
         }
 
