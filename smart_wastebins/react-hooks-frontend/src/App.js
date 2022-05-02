@@ -1,6 +1,6 @@
 import './App.css';
 import ListBinComponent from './components/ListBinComponent';
-import MapComponent from './MapComponent';
+import MapComponent from './components/MapComponent';
 
 function App() {
   return (
