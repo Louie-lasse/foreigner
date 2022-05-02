@@ -17,6 +17,8 @@ HELP.md
 
 ### IntelliJ IDEA ###
 .idea
+*.idea
+**.idea
 *.iws
 *.iml
 *.ipr
