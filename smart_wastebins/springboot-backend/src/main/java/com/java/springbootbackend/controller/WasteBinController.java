@@ -2,11 +2,9 @@ package com.java.springbootbackend.controller;
 
 import com.java.springbootbackend.model.WasteBin;
 import com.java.springbootbackend.model.Data;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,5 +21,18 @@ public class WasteBinController {
     @GetMapping
     public List<WasteBin> getAllWasteBins(){
         return data.getWasteBins();
+    }
+
+    @GetMapping("/{amount}")
+    public List<WasteBin> getBins(@PathVariable(value = "amount") int amount) {
+        if (amount > getAllWasteBins().size() || amount < 0) {
+            return getAllWasteBins();
+        }
+
+        List<WasteBin> temp = new ArrayList<>();
+        for (int i = 0; i < amount; i++) {
+            temp.add(getAllWasteBins().get(i));
+        }
+        return temp;
     }
 }
