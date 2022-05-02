@@ -1,0 +1,6 @@
+Project scope
+
+We have a map with waypoints representing big belly bins. 
+A route is displayed through the bins that are X amount full.
+The route needs to be as good as a route a human would construct, if not better.
+Some sort of way to tell how full the bins are.
