@@ -10,17 +10,24 @@ class RandomWasteBinService extends WasteBinService {
 
     private final List<WasteBin> wasteBins;
 
+    private final static int seed = 0;//change seed to debug
+
+    private final Random random;
+
     protected RandomWasteBinService() {
-        Random random = new Random(0);
+        random = new Random(seed);
         wasteBins = new ArrayList<>();
         double x, y, fullness;
         for (int i = 0; i < 10; i++) {
-            //change seed to debug
-            x = random.nextDouble(57.634763, 57.761942);
-            y = random.nextDouble(11.889930, 12.053338);
-            fullness = random.nextDouble(0.4, 1);
+            x = randomDouble(57.634763, 57.761942);
+            y = randomDouble(11.889930, 12.053338);
+            fullness = randomDouble(0.4, 1);
             wasteBins.add(new WasteBin(x, y, fullness));
         }
+    }
+
+    private double randomDouble(double rangeMin, double rangeMax) {
+        return rangeMin + (rangeMax - rangeMin) * random.nextDouble();
     }
 
     public List<WasteBin> getAllBins() {
