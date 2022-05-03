@@ -21,9 +21,8 @@ function App() {
 
   return (
     <div>
-      <InputPath onSubmit={bins => setBins(bins)}/>
       <MapComponent coordinates={coordinates}/>
-      
+      <InputPath onSubmit={bins => setBins(bins)}/>
     </div>
   );
 }
