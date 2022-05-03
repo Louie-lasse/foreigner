@@ -11,8 +11,9 @@ const center = {
  lng: 11.972899811393049
 };
 
-function MapComponent() {
+function MapComponent(coordinates) {
   return (
+    <div>
     <LoadScript
       googleMapsApiKey="AIzaSyABB237sW4ZMIll6O3meWhgUL7cAROCubY"
     >
@@ -21,7 +22,22 @@ function MapComponent() {
         center={center}
         zoom={12}
       >
+        {coordinates.coordinates.map(
+          coord =>
+            <Marker
+            position={{lat: coord.x, lng: coord.y}}
+            />
+        )}
+        {/*
+        bins.bins.map(
+          bin => 
+            <Marker
+            position={{lat: bin.coordinates.x, lng: bin.coordinates.y}}
+            />
+        )
+        */}
         { /* Child components, such as markers, info windows, etc. */ }
+        {/*
         <Marker
         position={{lat: 57.69005420321499, lng: 11.97258981393049 }}
         />
@@ -37,8 +53,10 @@ function MapComponent() {
         <Marker
         position={{lat: 57.65340765221782, lng: 11.893727295118847 }}
         />
+        */}
       </GoogleMap>
     </LoadScript>
+    </div>
   )
 }
 
