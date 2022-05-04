@@ -18,7 +18,7 @@ class RandomWasteBinService extends WasteBinService {
         random = new Random(seed);
         wasteBins = new ArrayList<>();
         double x, y, fullness;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 15; i++) {
             x = randomDouble(57.634763, 57.761942);
             y = randomDouble(11.889930, 12.053338);
             fullness = randomDouble(0.4, 1);
