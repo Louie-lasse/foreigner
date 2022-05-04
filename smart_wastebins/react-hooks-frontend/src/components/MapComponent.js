@@ -11,6 +11,18 @@ const center = {
  lng: 11.972899811393049
 };
 
+function getMarkers(coordinates) {
+  let coords = coordinates.coordinates;
+  let markers = []
+  for (let i = 0; i < coords.length; i++){
+    markers[i] = <Marker
+                  position={{lat: coords[i].x, lng: coords[i].y}}
+                  label={(i+1).toString()}
+                  />
+  }
+  return markers;
+}
+
 function MapComponent(coordinates) {
   return (
     <div>
@@ -22,12 +34,7 @@ function MapComponent(coordinates) {
         center={center}
         zoom={12}
       >
-        {coordinates.coordinates.map(
-          coord =>
-            <Marker
-            position={{lat: coord.x, lng: coord.y}}
-            />
-        )}
+        {getMarkers(coordinates)}
       </GoogleMap>
     </LoadScript>
     </div>
