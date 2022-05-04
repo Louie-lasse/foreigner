@@ -6,7 +6,7 @@ const InputPath = ({onSubmit}) => {
 
 
     const sendBins = (n) => {
-        console.log(n+"bins sent");
+        console.log(n+" bins sent");
         BinService.getBins(n).then(
             bins => onSubmit(bins.data)
         ).catch(
