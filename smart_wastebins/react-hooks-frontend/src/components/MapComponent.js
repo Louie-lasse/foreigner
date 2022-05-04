@@ -1,5 +1,5 @@
 import React from 'react'
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker, Polyline } from '@react-google-maps/api';
 
 const containerStyle = {
   width: '1280px',
@@ -23,6 +23,28 @@ function getMarkers(coordinates) {
   return markers;
 }
 
+function generatePath(coordinates){
+  let coords = coordinates.coordinates
+  if (coords.length === 0){
+    console.log('empty')
+    return <></>
+  } 
+  console.log(coords)
+  let paths = []
+  let i = 0;
+  while (i < coords.length){
+    let coord = coords[i];
+    paths[i] = {lat: coord.x, lng: coord.y}
+    i++;
+  }
+  let coord = coords[0];
+  paths[i] = {lat: coord.x, lng: coord.y}
+  console.log(paths)
+  return <Polyline
+          path={paths}
+          />;
+}
+
 function MapComponent(coordinates) {
   return (
     <div>
@@ -35,6 +57,7 @@ function MapComponent(coordinates) {
         zoom={12}
       >
         {getMarkers(coordinates)}
+        {generatePath(coordinates)}
       </GoogleMap>
     </LoadScript>
     </div>
