@@ -12,6 +12,7 @@ class BinService {
     getBins(nBins) {
         return axios.get(BIN_BASE_REST_API_URL + nBins)
     }
+
 }
 
 export default new BinService();
