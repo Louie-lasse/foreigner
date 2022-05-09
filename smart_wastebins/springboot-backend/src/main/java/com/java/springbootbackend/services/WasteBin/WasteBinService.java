@@ -7,18 +7,28 @@ import java.util.Objects;
 
 public abstract class WasteBinService {
 
-    private static WasteBinService implementation;
+    private static IWasteBinService defaultImplementation;
 
-    public static WasteBinService getImplementation(){
-        if (Objects.isNull(implementation)){
-            implementation = new RandomWasteBinService();
+    public static IWasteBinService getService() {
+        if (Objects.isNull(defaultImplementation)) {
+            defaultImplementation = new RandomWasteBinService();
         }
-        return implementation;
+        return defaultImplementation;
     }
 
-    public List<WasteBin> getWasteBins(){
-        return getImplementation().getAllBins();
+    public static IWasteBinService getService(ServiceType type) {
+        return type.implementation;
     }
 
     protected abstract List<WasteBin> getAllBins();
+
+    public enum ServiceType {
+        RANDOM(new RandomWasteBinService());
+
+        private final IWasteBinService implementation;
+
+        ServiceType(IWasteBinService service) {
+            implementation = service;
+        }
+    }
 }
