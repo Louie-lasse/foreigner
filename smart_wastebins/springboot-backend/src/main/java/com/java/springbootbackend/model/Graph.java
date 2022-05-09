@@ -1,6 +1,7 @@
 package com.java.springbootbackend.model;
 
 import com.java.springbootbackend.services.PathFinder.PathFinderService;
+import com.java.springbootbackend.services.Weight.IWeightService;
 import com.java.springbootbackend.services.Weight.WeightService;
 
 import java.util.HashMap;
@@ -15,7 +16,7 @@ public class Graph {
 
     public Graph(List<Coord> coords, Coord start) {
         this.start = start;
-        WeightService weightService = WeightService.getImplementation();
+        IWeightService weightService = WeightService.getService();
         nodes = new HashMap<>();
         Node node;
         double weight;
@@ -24,7 +25,7 @@ public class Graph {
             node = new Node(c);
             for (Coord other : coords) {
                 if (!c.equals(other)) {
-                    weight = weightService.calculateWeight(c, other);
+                    weight = weightService.getWeight(c, other);
                     node.addEdge(other, weight);
                 }
             }
