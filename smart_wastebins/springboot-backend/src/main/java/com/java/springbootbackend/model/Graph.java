@@ -3,7 +3,6 @@ package com.java.springbootbackend.model;
 import com.java.springbootbackend.services.PathFinder.PathFinderService;
 import com.java.springbootbackend.services.Weight.WeightService;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

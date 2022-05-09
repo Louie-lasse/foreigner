@@ -14,6 +14,13 @@ import java.util.function.BiConsumer;
 public class BasicPathFinder extends PathFinderService {
 
 
+    /**
+     * Finds a short path by always moving to the closest, non-visited node.
+     *
+     * @param map   a map of all the nodes
+     * @param start the starting Coord
+     * @return a double representing distance, and an ordered list of nodes
+     */
     @Override
     protected Pair<Double, List<Coord>> calculatePath(Map<? extends Coord, ? extends Node> map, Coord start) {
         map.forEach((BiConsumer<Coord, Node>) (coord, node) -> node.sort(Comparator.comparingDouble(Edge::getWeight)));
