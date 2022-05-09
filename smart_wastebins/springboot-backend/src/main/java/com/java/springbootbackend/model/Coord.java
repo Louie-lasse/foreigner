@@ -65,21 +65,4 @@ public class Coord {
             this.y = y;
         }
     }
-
-    /**
-     * Compares two {@code Coord}'s
-     *
-     * @param o the other object
-     * @return true if both x and y values are equal
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (o == this) {
-            return true;
-        }
-        if (!(o instanceof Coord other)) {
-            return false;
-        }
-        return getX() == other.getX() && getY() == other.getY();
-    }
 }
