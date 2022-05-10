@@ -1,5 +1,6 @@
 package com.java.springbootbackend.model;
 
+import com.java.springbootbackend.services.PathFinder.IPathFinderService;
 import com.java.springbootbackend.services.PathFinder.PathFinderService;
 import com.java.springbootbackend.services.Weight.IWeightService;
 import com.java.springbootbackend.services.Weight.WeightService;
@@ -34,8 +35,15 @@ public class Graph {
     }
 
     public Pair<Double, List<Coord>> shortestPath() {
-        PathFinderService pf = PathFinderService.getImplementation();
-        return pf.findPath(nodes, start);
+        IPathFinderService pf = PathFinderService.getImplementation();
+        return pf.findPath(this);
     }
 
+    public Map<Coord, Node> getNodes() {
+        return nodes;
+    }
+
+    public Coord getStart() {
+        return start;
+    }
 }

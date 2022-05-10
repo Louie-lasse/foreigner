@@ -1,9 +1,6 @@
 package com.java.springbootbackend.services.PathFinder;
 
-import com.java.springbootbackend.model.Coord;
-import com.java.springbootbackend.model.Edge;
-import com.java.springbootbackend.model.Node;
-import com.java.springbootbackend.model.Pair;
+import com.java.springbootbackend.model.*;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -11,7 +8,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
-public class BasicPathFinder extends PathFinderService {
+public class BasicPathFinder implements IPathFinderService {
+
+    @Override
+    public Pair<Double, List<Coord>> findPath(Graph graph) {
+        return calculatePath(graph.getNodes(), graph.getStart());
+    }
 
 
     /**
@@ -21,7 +23,6 @@ public class BasicPathFinder extends PathFinderService {
      * @param start the starting Coord
      * @return a double representing distance, and an ordered list of nodes
      */
-    @Override
     protected Pair<Double, List<Coord>> calculatePath(Map<? extends Coord, ? extends Node> map, Coord start) {
         map.forEach((BiConsumer<Coord, Node>) (coord, node) -> node.sort(Comparator.comparingDouble(Edge::getWeight)));
         Coord current = start;
@@ -60,4 +61,5 @@ public class BasicPathFinder extends PathFinderService {
         } while (visited.contains(path.getCoord()));
         return path;
     }
+
 }
