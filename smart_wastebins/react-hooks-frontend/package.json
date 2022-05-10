@@ -10,7 +10,8 @@
     "axios": "^0.26.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-scripts": "5.0.0",
+    "react-scripts": "^5.0.0",
+    "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -36,5 +37,33 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+
+  "name": "react-buttons-and-tabs",
+  "version": "1.0.0",
+  "description": "React Button demo with theme, disabled, link button, toggle, and tabs. ",
+  "keywords": [],
+  "main": "src/index.js",
+  "dependencies": {
+    "react": "16.12.0",
+    "react-dom": "16.12.0",
+    "react-scripts": "3.0.1",
+    "styled-components": "5.0.0"
+  },
+  "devDependencies": {
+    "typescript": "3.3.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
+

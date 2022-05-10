@@ -8,7 +8,6 @@ import axios from 'axios'
 import InputPath from './components/InputPath';
 
 
-
 function App() {
 
   const [bins,setBins] = useState([])
