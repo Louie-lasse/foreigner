@@ -17,10 +17,6 @@ import java.util.Map;
 
 public class APIWasteBinService implements IWasteBinService {
 
-    public static void main(String[] args) {
-        new APIWasteBinService().getWasteBins().forEach(System.out::println);
-    }
-
     @Override
     public List<WasteBin> getWasteBins() {
         try {
