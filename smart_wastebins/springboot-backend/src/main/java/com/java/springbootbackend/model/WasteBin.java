@@ -31,4 +31,12 @@ public class WasteBin {
         coordinates.setX(longitude);
         coordinates.setY(latitude);
     }
+
+    @Override
+    public String toString() {
+        return "WasteBin{" +
+                "fullness=" + fullness +
+                ", coordinates=" + coordinates +
+                '}';
+    }
 }
