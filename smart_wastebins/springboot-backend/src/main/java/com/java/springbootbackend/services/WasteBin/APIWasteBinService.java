@@ -21,7 +21,7 @@ public class APIWasteBinService implements IWasteBinService {
     /**
      * Gets waste bins from bigbelly-API
      *
-     * @return {@code bins} returned from the API
+     * @return a list of {@link WasteBin} returned from the API
      */
     @Override
     public List<WasteBin> getWasteBins() {
@@ -37,7 +37,7 @@ public class APIWasteBinService implements IWasteBinService {
     /**
      * Pares JSON data into waste bins
      *
-     * @param json json data to be parsed
+     * @param json {@link JsonNode} data to be parsed
      * @return the list of parsed bins
      */
     private List<WasteBin> parseBins(JsonNode json) {
@@ -45,7 +45,7 @@ public class APIWasteBinService implements IWasteBinService {
             ParsedJson object = new Gson().fromJson(json.toString(), ParsedJson.class);
             List<WasteBin> bins = new ArrayList<>();
             for (ParsedJson.InfoBin info : object.assets) {
-                bins.add(new WasteBin(info.longitude, info.latitude, info.latestFullness));
+                bins.add(new WasteBin(info.latitude, info.longitude, info.latestFullness));
             }
             return bins;
         } catch (JsonSyntaxException e) {
@@ -57,12 +57,12 @@ public class APIWasteBinService implements IWasteBinService {
     /**
      * Connects to the big belly API to retrieve waste bins
      *
-     * @return a JSON object containing all waste bins
+     * @return a {@link JsonNode} object containing all waste bins
      * @throws UnirestException if connection to the client failed
      */
     private JsonNode getJsonFromAPI() throws UnirestException {
         Map<String, String> headers = new HashMap<>();
-        headers.put("X-Token", "THIS IS TOTALY A LEGIT API-TOKEN!!!!");
+        headers.put("X-Token", "MtaHVvy974562ZbrKRSX");
         headers.put("Cache-Control", "no-cache");
 
         Map<String, Object> query = new HashMap<>();

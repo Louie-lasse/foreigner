@@ -7,13 +7,10 @@ import java.util.Objects;
 
 public abstract class WasteBinService {
 
-    private static IWasteBinService defaultImplementation;
+    private static final ServiceType defaultImplementation = ServiceType.API;
 
     public static IWasteBinService getService() {
-        if (Objects.isNull(defaultImplementation)) {
-            defaultImplementation = new APIWasteBinService();
-        }
-        return defaultImplementation;
+        return getService(defaultImplementation);
     }
 
     public static IWasteBinService getService(ServiceType type) {

@@ -50,6 +50,7 @@ public class BasicPathFinder implements IPathFinderService {
             if (e.getCoord() == start)
                 return e;
         }
+        System.out.println(map);
         throw new RuntimeException("Map error: no way home from " + current);
     }
 
