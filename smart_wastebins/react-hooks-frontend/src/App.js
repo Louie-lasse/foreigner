@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState,useEffect } from 'react';
 import './App.css';
 import CollectBins from './components/CollectBins';

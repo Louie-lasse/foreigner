@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React from 'react';
 import BinService from "../services/BinService";
 import InputBin from "./InputBin";
 
