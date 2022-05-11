@@ -1,6 +1,7 @@
 package com.java.springbootbackend.services.WasteBin;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 import com.java.springbootbackend.model.WasteBin;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.ObjectMapper;
@@ -17,25 +18,48 @@ import java.util.Map;
 
 public class APIWasteBinService implements IWasteBinService {
 
+    /**
+     * Gets waste bins from bigbelly-API
+     *
+     * @return {@code bins} returned from the API
+     */
     @Override
     public List<WasteBin> getWasteBins() {
         try {
             JsonNode json = getJsonFromAPI();
             return parseBins(json);
         } catch (UnirestException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            return new ArrayList<>();
         }
     }
 
+    /**
+     * Pares JSON data into waste bins
+     *
+     * @param json json data to be parsed
+     * @return the list of parsed bins
+     */
     private List<WasteBin> parseBins(JsonNode json) {
-        ParsedJson object = new Gson().fromJson(json.toString(), ParsedJson.class);
-        List<WasteBin> bins = new ArrayList<>();
-        for (ParsedJson.InfoBin info : object.assets) {
-            bins.add(new WasteBin(info.longitude, info.latitude, info.latestFullness));
+        try {
+            ParsedJson object = new Gson().fromJson(json.toString(), ParsedJson.class);
+            List<WasteBin> bins = new ArrayList<>();
+            for (ParsedJson.InfoBin info : object.assets) {
+                bins.add(new WasteBin(info.longitude, info.latitude, info.latestFullness));
+            }
+            return bins;
+        } catch (JsonSyntaxException e) {
+            e.printStackTrace();
+            return new ArrayList<>();
         }
-        return bins;
     }
 
+    /**
+     * Connects to the big belly API to retrieve waste bins
+     *
+     * @return a JSON object containing all waste bins
+     * @throws UnirestException if connection to the client failed
+     */
     private JsonNode getJsonFromAPI() throws UnirestException {
         Map<String, String> headers = new HashMap<>();
         headers.put("X-Token", "THIS IS TOTALY A LEGIT API-TOKEN!!!!");
@@ -55,11 +79,14 @@ public class APIWasteBinService implements IWasteBinService {
         return response.getBody();
     }
 
-    private class ParsedJson {
+    /**
+     * private inner class used for parsing the JSON-data
+     */
+    private static class ParsedJson {
         private String errorCode;
         private InfoBin[] assets;
 
-        class InfoBin {
+        static class InfoBin {
             private long latestFullness;
             private String reason;
             private long serialNumber;
