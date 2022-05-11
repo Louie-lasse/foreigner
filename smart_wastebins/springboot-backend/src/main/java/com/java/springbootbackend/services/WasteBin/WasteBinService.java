@@ -11,7 +11,7 @@ public abstract class WasteBinService {
 
     public static IWasteBinService getService() {
         if (Objects.isNull(defaultImplementation)) {
-            defaultImplementation = new RandomWasteBinService();
+            defaultImplementation = new APIWasteBinService();
         }
         return defaultImplementation;
     }
@@ -23,7 +23,8 @@ public abstract class WasteBinService {
     protected abstract List<WasteBin> getAllBins();
 
     public enum ServiceType {
-        RANDOM(new RandomWasteBinService());
+        RANDOM(new RandomWasteBinService()),
+        API(new APIWasteBinService());
 
         private final IWasteBinService implementation;
 
