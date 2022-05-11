@@ -4,9 +4,9 @@ public class WasteBin {
     private double fullness;
     private Coord coordinates = new Coord(0, 0);
 
-    public WasteBin(double longitude, double latitude, double fullness) {
+    public WasteBin(double latitude, double longitude, double fullness) {
         setFullness(fullness);
-        setCoordinates(longitude, latitude);
+        setCoordinates(latitude, longitude);
     }
 
     public double getFullness() {
