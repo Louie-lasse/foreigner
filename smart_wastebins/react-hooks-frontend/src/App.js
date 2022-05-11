@@ -4,7 +4,7 @@ import CollectBins from './components/CollectBins';
 import ListBinComponent from './components/ListBinComponent';
 import MapComponent from './components/MapComponent';
 import BinService from './services/BinService'
-import axios from 'axios'
+
 import InputPath from './components/InputPath';
 
 
