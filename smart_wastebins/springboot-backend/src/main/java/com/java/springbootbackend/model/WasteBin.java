@@ -9,6 +9,10 @@ public class WasteBin {
         setCoordinates(latitude, longitude);
     }
 
+    public WasteBin getThis(){
+        return this;
+    }
+
     public double getFullness() {
         double temp;
         temp = fullness;
