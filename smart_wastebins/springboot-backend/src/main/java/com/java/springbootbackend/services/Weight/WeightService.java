@@ -1,23 +1,34 @@
 package com.java.springbootbackend.services.Weight;
 
 import com.java.springbootbackend.model.Coord;
+import com.java.springbootbackend.services.WasteBin.IWasteBinService;
+import com.java.springbootbackend.services.WasteBin.WasteBinService;
 
 import java.util.Objects;
 
 public abstract class WeightService {
 
-    private static WeightService implementation;
+    private static IWeightService implementation;
 
-    public static WeightService getImplementation() {
+    public static IWeightService getService() {
         if (Objects.isNull(implementation)) {
             implementation = new BasicWeightService();
         }
         return implementation;
     }
 
-    public double calculateWeight(Coord c1, Coord c2) {
-        return getImplementation().calculate(c1, c2);
+    public static IWeightService getService(ServiceType type) {
+        return type.implementation;
     }
 
-    protected abstract double calculate(Coord c1, Coord c2);
+    public enum ServiceType {
+
+        BASIC(new BasicWeightService());
+
+        private final IWeightService implementation;
+
+        ServiceType(IWeightService service) {
+            implementation = service;
+        }
+    }
 }
