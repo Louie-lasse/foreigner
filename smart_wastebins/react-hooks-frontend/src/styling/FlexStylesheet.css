@@ -1,0 +1,9 @@
+
+
+.parent{
+    display: flex;
+    align-items: flex-end;
+    gap: 50px 10px;
+    flex: 1 1 auto;
+
+}

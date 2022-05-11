@@ -1,9 +1,10 @@
 import React from 'react'
 import { GoogleMap, LoadScript, Marker, Polyline } from '@react-google-maps/api';
+import '../styling/FlexStylesheet.css';
 
 const containerStyle = {
-  width: '1280px',
-  height: '400px'
+  width: '500px',
+  height: '500px'
 };
 
 const center = {
@@ -47,7 +48,11 @@ function generatePath(coordinates){
 
 function MapComponent(coordinates) {
   return (
-    <div>
+    <div style={{
+      display: 'flex',
+      gap: '50px',
+      border: '10px solid green',
+    }}>
     <LoadScript
       googleMapsApiKey="AIzaSyABB237sW4ZMIll6O3meWhgUL7cAROCubY"
     >

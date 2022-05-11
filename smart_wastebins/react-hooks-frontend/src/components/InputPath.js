@@ -2,6 +2,7 @@ import React from 'react';
 import BinService from "../services/BinService";
 import PathService from "../services/PathService";
 import InputBin from "./InputBin";
+import '../styling/FlexStylesheet.css';
 
 const InputPath = ({onSubmit}) => {
 
@@ -20,7 +21,10 @@ const InputPath = ({onSubmit}) => {
     }
 
     return (
-        <div>
+        <div style={{
+            display: 'flex',
+            align: 'right',
+        }}>
             <InputBin onSubmit={n => sendBins(n)}/>
         </div>
     )
