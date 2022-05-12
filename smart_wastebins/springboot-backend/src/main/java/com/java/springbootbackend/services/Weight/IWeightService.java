@@ -1,7 +1,8 @@
 package com.java.springbootbackend.services.Weight;
 
 import com.java.springbootbackend.model.Coord;
+import com.java.springbootbackend.model.IMappable;
 
 public interface IWeightService {
-    double getWeight(Coord c1, Coord c2);
+    double getWeight(IMappable c1, IMappable c2);
 }

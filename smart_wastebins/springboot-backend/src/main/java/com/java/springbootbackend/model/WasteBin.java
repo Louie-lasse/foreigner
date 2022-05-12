@@ -1,6 +1,6 @@
 package com.java.springbootbackend.model;
 
-public class WasteBin {
+public class WasteBin implements IMappable {
 
     private double fullness;
     private String groupName;
@@ -42,11 +42,11 @@ public class WasteBin {
     }
 
     public double getLatitude() {
-        return coordinates.getX();
+        return coordinates.getLatitude();
     }
 
     public double getLongitude() {
-        return coordinates.getY();
+        return coordinates.getLongitude();
     }
 
     public double getFullness() {
