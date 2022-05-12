@@ -52,7 +52,7 @@ class RandomWasteBinService implements IWasteBinService {
 
                 wasteBins.add(new WasteBin(x, y, fullness, groupName, serialNumber, description));
                 fullness = randomDouble(0.4, 1);
-                //wasteBins.add(new WasteBin(x, y, fullness));
+                wasteBins.add(new WasteBin(x, y, fullness));
             }
         }
         return wasteBins;
