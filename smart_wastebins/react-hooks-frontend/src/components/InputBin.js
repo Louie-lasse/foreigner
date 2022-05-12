@@ -1,3 +1,6 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 const InputBin = ({onSubmit}) => {
 
     const handleSubmit=(e)=>{
