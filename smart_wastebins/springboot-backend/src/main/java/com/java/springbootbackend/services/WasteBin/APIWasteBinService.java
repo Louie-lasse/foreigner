@@ -11,10 +11,7 @@ import org.apache.http.HttpResponse;
 import org.springframework.http.HttpStatus;
 
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class APIWasteBinService implements IWasteBinService {
 
