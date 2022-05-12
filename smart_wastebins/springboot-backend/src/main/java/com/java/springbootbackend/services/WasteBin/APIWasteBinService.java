@@ -48,7 +48,7 @@ public class APIWasteBinService implements IWasteBinService {
                 bins.add(new WasteBin(info.latitude, info.longitude, info.latestFullness));
             }
             return bins;
-        } catch (JsonSyntaxException e) {
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return new ArrayList<>();
         }
