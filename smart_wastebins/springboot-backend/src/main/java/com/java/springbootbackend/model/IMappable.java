@@ -4,8 +4,8 @@ public interface IMappable {
 
     Coord getCoord();
 
-    double getaDouble();
+    double getLatitude();
 
-    double getaDouble1();
+    double getLongitude();
 
 }
