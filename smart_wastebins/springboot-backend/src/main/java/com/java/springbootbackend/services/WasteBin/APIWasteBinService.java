@@ -84,7 +84,7 @@ public class APIWasteBinService implements IWasteBinService {
         private InfoBin[] assets;
 
         static class InfoBin {
-            private long latestFullness;
+            private int latestFullness;
             private String reason;
             private long serialNumber;
             private String accountName;
