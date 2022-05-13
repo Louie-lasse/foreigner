@@ -9,12 +9,12 @@ import InputPath from './components/InputPath';
 
 function App() {
 
-  const [coords,setCoords] = useState([])
+  const [bins,setBins] = useState([])
 
   return (
     <div>
-      <MapComponent coordinates={coords}/>
-      <InputPath onSubmit={coords => setCoords(coords)}/>
+      <MapComponent bins={bins}/>
+      <InputPath onSubmit={bins => setBins(bins)}/>
     </div>
   );
 }
