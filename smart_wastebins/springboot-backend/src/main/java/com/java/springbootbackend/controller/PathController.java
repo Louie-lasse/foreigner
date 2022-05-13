@@ -17,16 +17,11 @@ public class PathController {
     private final Data data = Data.getInstance();
 
     @GetMapping
-    public Pair<Double, List<Coord>> getPath(
+    public Pair<Double, List<IMappable>> getPath(
             @RequestParam("latitude") double x,
             @RequestParam("longitude") double y
     ) {
         Graph graph = new Graph(new ArrayList<>(data.getWasteBins()), new Coord(x, y));
-        Pair<Double, List<IMappable>> path = graph.shortestPath();
-        List<Coord> coords = new ArrayList<>();
-        path.getRight().forEach( iMappable -> {
-            coords.add(new Coord(iMappable.getLatitude(), iMappable.getLongitude()));
-        });
-        return new Pair<>(path.getLeft(), coords);
+        return graph.shortestPath();
     }
 }
