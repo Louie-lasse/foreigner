@@ -3,19 +3,19 @@ package com.java.springbootbackend.model;
 /**
  * Class for representing a Coordinate
  */
-public class Coord {
-    private double x;
-    private double y;
+public class Coord implements IMappable {
+    private double latitude;
+    private double longitude;
 
     /**
      * Public constructor, setting {@code x} and {@code y} respectively
      *
-     * @param x latitude
-     * @param y longitude
+     * @param latitude  latitude
+     * @param longitude longitude
      */
-    public Coord(double x, double y) {
-        this.x = x;
-        this.y = y;
+    public Coord(double latitude, double longitude) {
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     /**
@@ -23,22 +23,9 @@ public class Coord {
      *
      * @return {@code x}
      */
-    public double getX() {
-        return x;
-    }
-
-    /**
-     * Public setter for {@code x}-value
-     * <p>
-     * Accepts values between -180 and 180
-     * </p>
-     *
-     * @param x the longitude of the {@code Coord}
-     */
-    public void setX(double x) {
-        if (x >= -180 && 180 >= x) {
-            this.x = x;
-        }
+    @Override
+    public double getLatitude() {
+        return latitude;
     }
 
     /**
@@ -46,31 +33,46 @@ public class Coord {
      *
      * @return {@code y}
      */
-    public double getY() {
-        double tmp;
-        tmp = this.y;
-        return tmp;
+    @Override
+    public double getLongitude() {
+        return longitude;
     }
 
+
     /**
-     * Public setter for {@code y}-value
+     * Public setter for {@code latitude}-value
+     * <p>
+     * Accepts values between -180 and 180
+     * </p>
+     *
+     * @param latitude the longitude of the {@code Coord}
+     */
+    public void setLatitude(double latitude) {
+        if (latitude >= -180 && 180 >= latitude) {
+            this.latitude = latitude;
+        }
+    }
+
+
+    /**
+     * Public setter for {@code longitude}-value
      * <p>
      * Accepts values between -90 and 90
      * </p>
      *
-     * @param y set the longitude of hte {@code Coord}
+     * @param longitude set the longitude of hte {@code Coord}
      */
-    public void setY(double y) {
-        if (y <= 90 && -90 <= y) {
-            this.y = y;
+    public void setLongitude(double longitude) {
+        if (longitude <= 90 && -90 <= longitude) {
+            this.longitude = longitude;
         }
     }
 
     @Override
     public String toString() {
         return "Coord{" +
-                "x=" + x +
-                ", y=" + y +
+                "x=" + latitude +
+                ", y=" + longitude +
                 '}';
     }
 }

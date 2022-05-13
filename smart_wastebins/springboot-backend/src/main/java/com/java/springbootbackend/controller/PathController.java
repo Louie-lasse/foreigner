@@ -1,9 +1,6 @@
 package com.java.springbootbackend.controller;
 
-import com.java.springbootbackend.model.Coord;
-import com.java.springbootbackend.model.Data;
-import com.java.springbootbackend.model.Graph;
-import com.java.springbootbackend.model.Pair;
+import com.java.springbootbackend.model.*;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
@@ -24,9 +21,12 @@ public class PathController {
             @RequestParam("latitude") double x,
             @RequestParam("longitude") double y
     ) {
+        Graph graph = new Graph(new ArrayList<>(data.getWasteBins()), new Coord(x, y));
+        Pair<Double, List<IMappable>> path = graph.shortestPath();
         List<Coord> coords = new ArrayList<>();
-        data.getWasteBins().forEach(wasteBin -> coords.add(wasteBin.getCoordinates()));
-        Graph graph = new Graph(coords, new Coord(x, y));
-        return graph.shortestPath();
+        path.getRight().forEach( iMappable -> {
+            coords.add(new Coord(iMappable.getLatitude(), iMappable.getLongitude()));
+        });
+        return new Pair<>(path.getLeft(), coords);
     }
 }

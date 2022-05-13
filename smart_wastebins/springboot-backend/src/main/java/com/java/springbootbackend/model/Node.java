@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class Node {
 
-    Coord coord;
+    IMappable coord;
     List<Edge> edges;
 
     /**
@@ -17,7 +17,7 @@ public class Node {
      *
      * @param coord the coord of this node
      */
-    public Node(Coord coord) {
+    public Node(IMappable coord) {
         this.coord = coord;
         this.edges = new ArrayList<>();
     }
@@ -27,7 +27,7 @@ public class Node {
      *
      * @return coord
      */
-    public Coord getCoord() {
+    public IMappable getCoord() {
         return coord;
     }
 
@@ -37,7 +37,7 @@ public class Node {
      * @param coord  coordinate of the next node
      * @param weight weight to the next node
      */
-    public void addEdge(Coord coord, double weight) {
+    public void addEdge(IMappable coord, double weight) {
         edges.add(new Edge(coord, weight));
     }
 

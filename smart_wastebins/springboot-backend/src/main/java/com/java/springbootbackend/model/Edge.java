@@ -7,7 +7,7 @@ import static java.lang.Math.*;
  */
 public class Edge {
 
-    private final Coord coord;
+    private final IMappable coord;
     private final double weight;
 
     /**
@@ -16,7 +16,7 @@ public class Edge {
      * @param coord,  the {@link Coord} the edge leads to
      * @param weight, the distance/weight of the edge
      */
-    public Edge(Coord coord, double weight) {
+    public Edge(IMappable coord, double weight) {
         this.coord = coord;
         this.weight = weight;
     }
@@ -26,7 +26,7 @@ public class Edge {
      *
      * @return {@code coord}
      */
-    public Coord getCoord() {
+    public IMappable getCoord() {
         return coord;
     }
 

@@ -11,10 +11,7 @@ import org.apache.http.HttpResponse;
 import org.springframework.http.HttpStatus;
 
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class APIWasteBinService implements IWasteBinService {
 
@@ -48,7 +45,7 @@ public class APIWasteBinService implements IWasteBinService {
                 bins.add(new WasteBin(info.latitude, info.longitude, info.latestFullness));
             }
             return bins;
-        } catch (JsonSyntaxException e) {
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return new ArrayList<>();
         }
@@ -87,7 +84,7 @@ public class APIWasteBinService implements IWasteBinService {
         private InfoBin[] assets;
 
         static class InfoBin {
-            private long latestFullness;
+            private int latestFullness;
             private String reason;
             private long serialNumber;
             private String accountName;
