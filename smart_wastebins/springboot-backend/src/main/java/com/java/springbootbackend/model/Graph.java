@@ -11,20 +11,20 @@ import java.util.Map;
 
 public class Graph {
 
-    private final Map<Coord, Node> nodes;
+    private final Map<IMappable, Node> nodes;
 
-    private Coord start;
+    private IMappable start;
 
-    public Graph(List<Coord> coords, Coord start) {
+    public Graph(List<IMappable> coords, IMappable start) {
         this.start = start;
         IWeightService weightService = WeightService.getService();
         nodes = new HashMap<>();
         Node node;
         double weight;
         coords.add(start);
-        for (Coord c : coords) {
+        for (IMappable c : coords) {
             node = new Node(c);
-            for (Coord other : coords) {
+            for (IMappable other : coords) {
                 if (!c.equals(other)) {
                     weight = weightService.getWeight(c, other);
                     node.addEdge(other, weight);
@@ -34,16 +34,16 @@ public class Graph {
         }
     }
 
-    public Pair<Double, List<Coord>> shortestPath() {
+    public Pair<Double, List<IMappable>> shortestPath() {
         IPathFinderService pf = PathFinderService.getImplementation();
         return pf.findPath(this);
     }
 
-    public Map<Coord, Node> getNodes() {
+    public Map<IMappable, Node> getNodes() {
         return nodes;
     }
 
-    public Coord getStart() {
+    public IMappable getStart() {
         return start;
     }
 }
