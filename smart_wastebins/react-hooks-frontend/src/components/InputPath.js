@@ -21,12 +21,10 @@ const InputPath = ({onSubmit}) => {
     }
 
     return (
-        <div style={{
-            display: 'flex',
-            align: 'right',
-        }}>
+        <div class="item_2">
             <InputBin onSubmit={n => sendBins(n)}/>
         </div>
+
     )
 }
 

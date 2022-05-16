@@ -1,9 +1,41 @@
 
 
-.parent{
+.container{
     display: flex;
-    align-items: flex-end;
-    gap: 50px 10px;
-    flex: 1 1 auto;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px 10px;
+    overflow-y: auto;
+}
+.item_1{
+    flex-basis: auto;
+    justify-content: space-evenly;
+}
+.item_2{
+    flex-basis: auto;
+    justify-content: space-evenly;
 
+}
+
+
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+.google_container {
+    margin: 0 100px;
+    border: 1px solid green;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#map {
+    flex: 1;
+    border: 5px dashed red;
 }

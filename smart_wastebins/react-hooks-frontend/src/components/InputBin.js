@@ -1,6 +1,8 @@
 import React from 'react';
 import Button from "../styling/ButtonStyling";
 import flex from '../styling/FlexStylesheet.css';
+
+
 const InputBin = ({onSubmit}) => {
 
     const handleSubmit=(e)=>{
@@ -11,10 +13,8 @@ const InputBin = ({onSubmit}) => {
       }
 
     return (
-        <div className = "container" style={{
-            display: 'flex',
-            border: '10px solid green',
-        }}>
+
+        <div className = "container" class="item_2">
            <form onSubmit={handleSubmit}>
                 <input
                     onKeyPress={(event) => {
