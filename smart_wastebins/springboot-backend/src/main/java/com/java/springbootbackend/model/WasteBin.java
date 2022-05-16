@@ -5,19 +5,22 @@ public class WasteBin implements IMappable {
     private int fullness;
     private String groupName;
     private long serialNumber;
-    private final Coord coordinates;
+    private double latitude;
+    private double longitude;
     private String description;
 
     public WasteBin(double latitude, double longitude, int fullness, String groupName, long serialNumber, String description) {
         setFullness(fullness);
-        this.coordinates = new Coord(latitude, longitude);
+        this.latitude = latitude;
+        this.longitude = longitude;
         this.serialNumber = serialNumber;
         this.groupName = groupName;
         this.description = description;
     }
 
     public WasteBin(double latitude, double longitude, int fullness) {
-        this.coordinates = new Coord(latitude, longitude);
+        this.latitude = latitude;
+        this.longitude = longitude;
         this.fullness = fullness;
     }
 
@@ -40,11 +43,11 @@ public class WasteBin implements IMappable {
     }
 
     public double getLatitude() {
-        return coordinates.getLatitude();
+        return latitude;
     }
 
     public double getLongitude() {
-        return coordinates.getLongitude();
+        return longitude;
     }
 
     public double getFullness() {
@@ -59,17 +62,15 @@ public class WasteBin implements IMappable {
         }
     }
 
-    public Coord getCoordinates() {
-        Coord temp;
-        temp = coordinates;
-        return temp;
-    }
-
     @Override
     public String toString() {
         return "WasteBin{" +
                 "fullness=" + fullness +
-                ", coordinates=" + coordinates +
+                ", groupName='" + groupName + '\'' +
+                ", serialNumber=" + serialNumber +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", description='" + description + '\'' +
                 '}';
     }
 }
