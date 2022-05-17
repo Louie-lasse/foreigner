@@ -18,7 +18,6 @@ function App() {
         <div style={{ display: "flex", padding: "10px" }}>
             <MapComponent bins={bins}/>
             <InputPath onSubmit={bins => setBins(bins)}/>
-            />
     </div>
     </div>
   );
