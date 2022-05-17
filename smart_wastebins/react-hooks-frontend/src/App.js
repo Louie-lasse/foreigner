@@ -8,14 +8,17 @@ import InputBin from "./components/InputBin";
 import InputPath from './components/InputPath';
 
 
+
 function App() {
 
-  const [coords,setCoords] = useState([])
+  const [bins,setBins] = useState([])
+
   return (
     <div className="App">
         <div style={{ display: "flex", padding: "10px" }}>
-      <MapComponent coordinates={coords}/>
-      <InputPath onSubmit={coords => setCoords(coords)}/>
+            <MapComponent bins={bins}/>
+            <InputPath onSubmit={bins => setBins(bins)}/>
+            />
     </div>
     </div>
   );

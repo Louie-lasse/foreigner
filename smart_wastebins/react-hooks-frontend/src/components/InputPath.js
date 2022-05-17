@@ -1,4 +1,7 @@
 import React from 'react';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { useState } from "react";
 import BinService from "../services/BinService";
 import PathService from "../services/PathService";
 import InputBin from "./InputBin";
@@ -24,7 +27,6 @@ const InputPath = ({onSubmit}) => {
         <div class="item_2">
             <InputBin onSubmit={n => sendBins(n)}/>
         </div>
-
     )
 }
 
