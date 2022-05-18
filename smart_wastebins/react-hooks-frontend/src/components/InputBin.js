@@ -1,3 +1,8 @@
+import React from 'react';
+import Button from "../styling/ButtonStyling";
+import flex from '../styling/FlexStylesheet.css';
+
+
 const InputBin = ({onSubmit}) => {
 
     const handleSubmit=(e)=>{
@@ -8,7 +13,8 @@ const InputBin = ({onSubmit}) => {
       }
 
     return (
-        <div className = "container">
+
+        <div className = "container" class="item_2">
            <form onSubmit={handleSubmit}>
                 <input
                     onKeyPress={(event) => {
@@ -19,9 +25,9 @@ const InputBin = ({onSubmit}) => {
                     name = "numberOfBins"
                     placeholder="Number Of Bins"
                 />
-                <button>
+                <Button theme= "lightBlue"  >
                     Collect wastebins
-                </button>
+                </Button>
             </form> 
         </div>
     )

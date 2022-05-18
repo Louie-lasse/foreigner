@@ -1,9 +1,14 @@
 import React from 'react'
 import { GoogleMap, LoadScript, Marker, Polyline } from '@react-google-maps/api';
+import '../styling/FlexStylesheet.css';
+
 
 const containerStyle = {
-  width: '1280px',
-  height: '400px'
+ width: "100vh",
+ height:"100vh",
+ minHeight: "100vh",
+ minWidth: "100vh"
+
 };
 
 const center = {
@@ -11,43 +16,38 @@ const center = {
  lng: 11.972899811393049
 };
 
-function getMarkers(coordinates) {
-  let coords = coordinates.coordinates;
+function getMarkers(bins) {
+  let coords = bins.bins;
   let markers = []
   for (let i = 0; i < coords.length; i++){
     markers[i] = <Marker
-                  position={{lat: coords[i].x, lng: coords[i].y}}
+                  position={{lat: coords[i].latitude, lng: coords[i].longitude}}
                   label={(i+1).toString()}
                   />
   }
   return markers;
 }
 
-function generatePath(coordinates){
-  let coords = coordinates.coordinates
+function generatePath(bins){
+  let coords = bins.bins
   if (coords.length === 0){
-    console.log('empty')
     return <></>
   } 
-  console.log(coords)
   let paths = []
   let i = 0;
   while (i < coords.length){
     let coord = coords[i];
-    paths[i] = {lat: coord.x, lng: coord.y}
+    paths[i] = {lat: coord.latitude, lng: coord.longitude}
     i++;
   }
-  let coord = coords[0];
-  paths[i] = {lat: coord.x, lng: coord.y}
-  console.log(paths)
   return <Polyline
           path={paths}
           />;
 }
 
-function MapComponent(coordinates) {
+function MapComponent(bins) {
   return (
-    <div>
+    <div class="item_1">
     <LoadScript
       googleMapsApiKey="AIzaSyABB237sW4ZMIll6O3meWhgUL7cAROCubY"
     >
@@ -56,11 +56,12 @@ function MapComponent(coordinates) {
         center={center}
         zoom={12}
       >
-        {getMarkers(coordinates)}
-        {generatePath(coordinates)}
+        {getMarkers(bins)}
+        {generatePath(bins)}
       </GoogleMap>
     </LoadScript>
     </div>
+
   )
 }
 
