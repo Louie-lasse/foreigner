@@ -32,6 +32,35 @@ public class APIWasteBinService implements IWasteBinService {
     }
 
     /**
+     * Get HashMap of serial number -> Wastebin
+     *
+     * @return a HashMap of {@link WasteBin} with serial number (long) as key.
+     */
+    public Map<Long, WasteBin> getWasteBinMap() {
+        try {
+            List<WasteBin> wasteBins = getWasteBins();
+            return collectMap(wasteBins);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new HashMap<>();
+        }
+    }
+
+    /**
+     * Parses Wastebin-list to serial number->WasteBin-map
+     *
+     * @param wasteBins
+     * @return a HashMap of {@link WasteBin} with serial number (long) as key.
+     */
+    public Map<Long, WasteBin> collectMap(List<WasteBin> wasteBins) {
+        Map<Long, WasteBin> wasteBinMap = new HashMap<>();
+        for (WasteBin wastebin : wasteBins){
+            wasteBinMap.put(wastebin.getSerialNumber(), wastebin);
+        }
+        return wasteBinMap;
+    }
+
+    /**
      * Pares JSON data into waste bins
      *
      * @param json {@link JsonNode} data to be parsed
