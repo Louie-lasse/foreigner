@@ -25,12 +25,19 @@ function getMarkers(bins) {
     scaledSize: new window.google.maps.Size(50, 50), // scaled size
 };
 
-  for (let i = 0; i < coords.length; i++){
+/*
+  const startPos = {lat: coords[0].latitude, lng: coords[0].longitude};
+  markers[0] = <Marker
+                position={startPos}
+                />
+*/
+
+
+  for (let i = 1; i < coords.length -1; i++){
     markers[i] = <Marker
                   position={{lat: coords[i].latitude, lng: coords[i].longitude}}
                   label={{text: (i+1).toString(), color: "white", fontWeight:"bold" }}
                   icon={bigBellyIcon}
-
                   />
   }
 
@@ -53,7 +60,7 @@ function generatePath(bins){
           path={paths}
           />;
 }
-function generateRoute(directionService, directionsRenderer, bins){
+function generateRoute(directionsService, directionsRenderer, bins){
   const waypoints = []
   let coords = bins.bins
   if (coords.length === 0){
@@ -69,13 +76,15 @@ function generateRoute(directionService, directionsRenderer, bins){
 }
 
   let end = coords.length -1 
-  directionService.route({
+  //This is the function that creates the route
+  directionsService.route({
     origin: {lat: coords[0].latitude, lng: coords[0].longitude},
-    destination: {lat: coords[end].latitude, lng: coords[end].longitude},
+    destination: {lat: coords[0].latitude, lng: coords[0].longitude},
     waypoints: waypoints,
     travelMode: window.google.maps.TravelMode.DRIVING
   })
   .then((response) => {
+    //This is the function that draws the route
     directionsRenderer.setDirections(response);
   })
 }
@@ -93,8 +102,10 @@ function MapComponent(bins) {
       not loaded
     </p>
   }
-  const directionService = new window.google.maps.DirectionsService
+  const directionsService = new window.google.maps.DirectionsService
+  //supressMarkers disables the markers from directionsRenderer since we want to use our own.
   const directionsRenderer = new window.google.maps.DirectionsRenderer({suppressMarkers: true});
+  //Here you tell the directionsRenderer which map it should draw on
   directionsRenderer.setMap(map)
 
   return (
@@ -106,7 +117,10 @@ function MapComponent(bins) {
         onLoad = {(map) => setMap(map)}
       >
         {getMarkers(bins)}
-        {generateRoute(directionService, directionsRenderer, bins)}
+        {//generateRoute needs a directionService, and a directionsRenderer in order to
+        //set up the route and then draw it.
+        }
+        {generateRoute(directionsService, directionsRenderer, bins)}
       </GoogleMap>
     </div>
 
