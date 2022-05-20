@@ -75,7 +75,7 @@ public class APIWasteBinService implements IWasteBinService {
             ParsedJson object = new Gson().fromJson(json.toString(), ParsedJson.class);
             List<WasteBin> bins = new ArrayList<>();
             for (ParsedJson.InfoBin info : object.assets) {
-                bins.add(new WasteBin(info.latitude, info.longitude, info.latestFullness));
+                bins.add(new WasteBin(info.latitude, info.longitude, info.latestFullness, info.accountName, info.serialNumber, info.description));
             }
             return bins;
         } catch (RuntimeException e) {
