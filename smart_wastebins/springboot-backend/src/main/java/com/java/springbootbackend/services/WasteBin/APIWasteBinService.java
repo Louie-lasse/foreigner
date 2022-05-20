@@ -23,8 +23,8 @@ public class APIWasteBinService implements IWasteBinService {
     @Override
     public List<WasteBin> getWasteBins() {
         try {
-            JsonNode json = getJsonFromAPI("assets");
-            return parseBins(json);
+            JsonNode jsonWasteBins = getJsonFromAPI("assets");
+            return parseBins(jsonWasteBins);
         } catch (UnirestException e) {
             e.printStackTrace();
             return new ArrayList<>();
@@ -38,8 +38,8 @@ public class APIWasteBinService implements IWasteBinService {
      */
     public List<WasteBin> getWasteBinsErrors() {
         try {
-            JsonNode json = getJsonFromAPI("alerts");
-            return parseBins(json);
+            JsonNode jsonWasteBins = getJsonFromAPI("alerts");
+            return parseBins(jsonWasteBins);
         } catch (UnirestException e) {
             e.printStackTrace();
             return new ArrayList<>();
@@ -47,32 +47,21 @@ public class APIWasteBinService implements IWasteBinService {
     }
 
     /**
-     * Get HashMap of serial number -> Wastebin
+     * Get a HashMap of serial number -> Wastebin
      *
      * @return a HashMap of {@link WasteBin} with serial number (long) as key.
      */
-    public Map<Long, WasteBin> getWasteBinMap() {
+    private Map<Long, WasteBin> getWasteBinMap(List<WasteBin> wasteBins) {
         try {
-            List<WasteBin> wasteBins = getWasteBins();
-            return collectMap(wasteBins);
+            Map<Long, WasteBin> wasteBinMap = new HashMap<>();
+            for (WasteBin wastebin : wasteBins) {
+                wasteBinMap.put(wastebin.getSerialNumber(), wastebin);
+            }
+            return wasteBinMap;
         } catch (Exception e) {
             e.printStackTrace();
             return new HashMap<>();
         }
-    }
-
-    /**
-     * Parses Wastebin-list to serial number->WasteBin-map
-     *
-     * @param wasteBins
-     * @return a HashMap of {@link WasteBin} with serial number (long) as key.
-     */
-    private Map<Long, WasteBin> collectMap(List<WasteBin> wasteBins) {
-        Map<Long, WasteBin> wasteBinMap = new HashMap<>();
-        for (WasteBin wastebin : wasteBins){
-            wasteBinMap.put(wastebin.getSerialNumber(), wastebin);
-        }
-        return wasteBinMap;
     }
 
     /**
