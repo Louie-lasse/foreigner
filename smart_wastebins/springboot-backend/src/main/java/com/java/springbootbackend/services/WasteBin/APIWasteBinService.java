@@ -1,14 +1,10 @@
 package com.java.springbootbackend.services.WasteBin;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonSyntaxException;
 import com.java.springbootbackend.model.WasteBin;
 import com.mashape.unirest.http.JsonNode;
-import com.mashape.unirest.http.ObjectMapper;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import org.apache.http.HttpResponse;
-import org.springframework.http.HttpStatus;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.*;
@@ -65,16 +61,36 @@ public class APIWasteBinService implements IWasteBinService {
     }
 
     /**
-     * Pares JSON data into waste bins
+     * Parses JSON data into waste bins-alerts
+     *
+     * @param json {@link JsonNode} data to be parsed
+     * @return the list of parsed bin-alerts
+     */
+    private List<WasteBin> parseAlerts(JsonNode json) {
+        try {
+            ParsedAlerts object = new Gson().fromJson(json.toString(), ParsedAlerts.class);
+            List<WasteBin> bins = new ArrayList<>();
+            for (ParsedAlerts.Alerts info : object.alerts) {
+                bins.add(new WasteBin(info.Latitude, info.Longitude, 1, info.accountName, info.serialNumber, info.Description));
+            }
+            return bins;
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+
+    /**
+     * Parses JSON data into waste bins
      *
      * @param json {@link JsonNode} data to be parsed
      * @return the list of parsed bins
      */
     private List<WasteBin> parseBins(JsonNode json) {
         try {
-            ParsedJson object = new Gson().fromJson(json.toString(), ParsedJson.class);
+            ParsedBins object = new Gson().fromJson(json.toString(), ParsedBins.class);
             List<WasteBin> bins = new ArrayList<>();
-            for (ParsedJson.InfoBin info : object.assets) {
+            for (ParsedBins.InfoBin info : object.assets) {
                 bins.add(new WasteBin(info.latitude, info.longitude, info.latestFullness, info.accountName, info.serialNumber, info.description));
             }
             return bins;
@@ -96,7 +112,7 @@ public class APIWasteBinService implements IWasteBinService {
         headers.put("Cache-Control", "no-cache");
 
         Map<String, Object> query = new HashMap<>();
-        query.put("objectType", "alerts");
+        query.put("objectType", type);
         query.put("action", "load");
 
         com.mashape.unirest.http.HttpResponse<JsonNode> response = Unirest.get("https://api.bigbelly.com/api/v2")
@@ -109,10 +125,29 @@ public class APIWasteBinService implements IWasteBinService {
         return response.getBody();
     }
 
+    private class ParsedAlerts {
+        private Alerts[] alerts;
+
+        static class Alerts {
+            private int accountId;
+            private String accountName;
+            private String alertType;
+            private int serialNumber;
+            private double Latitude;
+            private int stationSerialNumber;
+            private String Description;
+            private long startTime;
+            private String Position;
+            private String alertCategory;
+            private double Longitude;
+        }
+
+    }
+
     /**
      * private inner class used for parsing the JSON-data
      */
-    private static class ParsedJson {
+    private static class ParsedBins {
         private String errorCode;
         private InfoBin[] assets;
 
