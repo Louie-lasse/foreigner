@@ -23,7 +23,22 @@ public class APIWasteBinService implements IWasteBinService {
     @Override
     public List<WasteBin> getWasteBins() {
         try {
-            JsonNode json = getJsonFromAPI();
+            JsonNode json = getJsonFromAPI("assets");
+            return parseBins(json);
+        } catch (UnirestException e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+
+    /**
+     * Gets wastebins-errors from bigbelly-API
+     *
+     * @return a list of {@link WasteBin} with errors returned from the API
+     */
+    public List<WasteBin> getWasteBinsErrors() {
+        try {
+            JsonNode json = getJsonFromAPI("alerts");
             return parseBins(json);
         } catch (UnirestException e) {
             e.printStackTrace();
@@ -52,7 +67,7 @@ public class APIWasteBinService implements IWasteBinService {
      * @param wasteBins
      * @return a HashMap of {@link WasteBin} with serial number (long) as key.
      */
-    public Map<Long, WasteBin> collectMap(List<WasteBin> wasteBins) {
+    private Map<Long, WasteBin> collectMap(List<WasteBin> wasteBins) {
         Map<Long, WasteBin> wasteBinMap = new HashMap<>();
         for (WasteBin wastebin : wasteBins){
             wasteBinMap.put(wastebin.getSerialNumber(), wastebin);
@@ -86,13 +101,13 @@ public class APIWasteBinService implements IWasteBinService {
      * @return a {@link JsonNode} object containing all waste bins
      * @throws UnirestException if connection to the client failed
      */
-    private JsonNode getJsonFromAPI() throws UnirestException {
+    private JsonNode getJsonFromAPI(String type) throws UnirestException {
         Map<String, String> headers = new HashMap<>();
         headers.put("X-Token", "MtaHVvy974562ZbrKRSX");
         headers.put("Cache-Control", "no-cache");
 
         Map<String, Object> query = new HashMap<>();
-        query.put("objectType", "assets");
+        query.put("objectType", "alerts");
         query.put("action", "load");
 
         com.mashape.unirest.http.HttpResponse<JsonNode> response = Unirest.get("https://api.bigbelly.com/api/v2")
