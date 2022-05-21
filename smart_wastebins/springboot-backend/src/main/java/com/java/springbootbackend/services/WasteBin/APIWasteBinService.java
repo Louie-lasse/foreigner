@@ -125,6 +125,9 @@ public class APIWasteBinService implements IWasteBinService {
         return response.getBody();
     }
 
+    /**
+     * private inner class used for parsing the JSON-data of wastebin-alerts
+     */
     private class ParsedAlerts {
         private Alerts[] alerts;
 
@@ -145,7 +148,7 @@ public class APIWasteBinService implements IWasteBinService {
     }
 
     /**
-     * private inner class used for parsing the JSON-data
+     * private inner class used for parsing the JSON-data of wastebin-assets
      */
     private static class ParsedBins {
         private String errorCode;
