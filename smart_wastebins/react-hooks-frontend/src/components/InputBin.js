@@ -16,17 +16,17 @@ const InputBin = ({onSubmit}) => {
 
         <div className = "container" class="item_2">
            <form onSubmit={handleSubmit}>
-                <input
+               <input
                     onKeyPress={(event) => {
                         if (!/[1-9]/.test(event.key)) {
                         event.preventDefault();
                         }
                     }}
                     name = "numberOfBins"
-                    placeholder="Number Of Bins"
+
                 />
                 <Button theme= "lightBlue"  >
-                    Collect wastebins
+                    Display Bins
                 </Button>
             </form> 
         </div>
