@@ -24,7 +24,7 @@ const NavBar = ({ menuItems = [{route: "/", label: "Reload Page"}], brand = "Big
     const desktopMenu = (
         <ul className="flex last:pr-3">
             {menuItems.map(item => {
-                return <li key={item.route}><a href={item.route} className="p-2 hover:bg-gray-100 mx-1 rounded">{item.label}</a></li>
+                return <a href={item.route} >{item.label}</a>
             })}
         </ul>
     );
@@ -33,7 +33,6 @@ const NavBar = ({ menuItems = [{route: "/", label: "Reload Page"}], brand = "Big
 
 
     return (
-
         <nav style={{
             left: "0px",
             top: "0px",

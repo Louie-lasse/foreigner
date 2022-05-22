@@ -18,8 +18,7 @@ function App() {
   return (
 
     <div className="App">
-        <NavBar style ="NavBar">
-            </NavBar>
+        <NavBar> </NavBar>
         <div style={{ display: "flex", padding: "10px" }}>
             <MapComponent bins={bins}/>
             <InputPath onSubmit={bins => setBins(bins)}/>

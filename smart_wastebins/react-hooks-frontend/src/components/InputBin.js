@@ -23,12 +23,11 @@ const InputBin = ({onSubmit}) => {
                         }
                     }}
                     name = "numberOfBins"
-
                 />
                 <Button theme= "lightBlue"  >
                     Display Bins
                 </Button>
-            </form> 
+            </form>
         </div>
     )
 }
