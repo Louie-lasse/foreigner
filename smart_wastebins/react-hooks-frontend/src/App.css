@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+.NavBar{
+  left: 0px;
+  top: 0px;
+  background-color: rgba(0, 120, 104, 0.67);
+
+}
