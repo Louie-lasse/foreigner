@@ -1,5 +1,5 @@
 import React from 'react'
-import { GoogleMap, LoadScript, Marker, Polyline } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker, Polyline, InfoWindow } from '@react-google-maps/api';
 import '../styling/FlexStylesheet.css';
 
 
@@ -21,6 +21,7 @@ function getMarkers(bins) {
   let markers = []
   for (let i = 0; i < coords.length; i++){
     markers[i] = <Marker
+                  key={i}
                   position={{lat: coords[i].latitude, lng: coords[i].longitude}}
                   label={(i+1).toString()}
                   />
@@ -42,10 +43,14 @@ function generatePath(bins){
   }
   return <Polyline
           path={paths}
+          onClick={() => generateInfoWindows(coords[i])}
           />;
 }
 
+
+
 function MapComponent(bins) {
+  let markers = getMarkers(bins);
   return (
     <div class="item_1">
     <LoadScript
@@ -56,8 +61,9 @@ function MapComponent(bins) {
         center={center}
         zoom={12}
       >
-        {getMarkers(bins)}
+        {markers}
         {generatePath(bins)}
+        {generateInfoWindows(markers)}
       </GoogleMap>
     </LoadScript>
     </div>
