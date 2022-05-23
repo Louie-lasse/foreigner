@@ -11,6 +11,9 @@ const containerStyle = {
 
 };
 
+const [isOpen,setOpen] = useState(false);
+const [openIndex, setOpenIndex] = useState(0);
+
 const center = {
  lat: 57.6900542032499,
  lng: 11.972899811393049
@@ -24,7 +27,10 @@ function getMarkers(bins) {
                   key={i}
                   position={{lat: coords[i].latitude, lng: coords[i].longitude}}
                   label={(i+1).toString()}
-                  />
+                  >
+                    
+                  </Marker>
+                  
   }
   return markers;
 }
