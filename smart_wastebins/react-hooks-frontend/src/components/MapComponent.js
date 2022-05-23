@@ -120,7 +120,7 @@ function MapComponent(bins) {
         {//generateRoute needs a directionService, and a directionsRenderer in order to
         //set up the route and then draw it.
         }
-        {generateRoute(directionsService, directionsRenderer, bins)}
+        {bins.bins.length > 25? generatePath(bins) : generateRoute(directionsService, directionsRenderer, bins)}
       </GoogleMap>
     </div>
 
