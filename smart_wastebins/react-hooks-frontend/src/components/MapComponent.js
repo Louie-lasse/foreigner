@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { GoogleMap, LoadScript, Marker, Polyline, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker, Polyline, useJsApiLoader, InfoWindow } from '@react-google-maps/api';
 import '../styling/FlexStylesheet.css';
 
+function MapComponent(bins) {
 
 const containerStyle = {
  width: "100vh",
@@ -16,29 +17,47 @@ const center = {
  lng: 11.972899811393049
 };
 
+const open = (i) => {
+  setOpen(true);
+  setOpenIndex(i);
+}
+
+const close = () => {
+  setOpen(false);
+}
+
+const [isOpen,setOpen] = useState(false);
+const [openIndex, setOpenIndex] = useState(0);
+
 function getMarkers(bins) {
   let coords = bins.bins;
   let markers = []
+  
 
   const bigBellyIcon = {
     url: "https://bigbelly.com/wp-content/uploads/2020/09/Bigbelly-Website-Product-Page-Tiles-09-1.png", // url
     scaledSize: new window.google.maps.Size(50, 50), // scaled size
-};
-
-/*
-  const startPos = {lat: coords[0].latitude, lng: coords[0].longitude};
-  markers[0] = <Marker
-                position={startPos}
-                />
-*/
+  };
 
 
   for (let i = 1; i < coords.length -1; i++){
     markers[i] = <Marker
+                  key={i}
+                  onClick={() => {
+                    open(i)
+                  }}
                   position={{lat: coords[i].latitude, lng: coords[i].longitude}}
                   label={{text: (i+1).toString(), color: "white", fontWeight:"bold" }}
                   icon={bigBellyIcon}
-                  />
+                  >
+                       {isOpen && openIndex === i ? <InfoWindow
+                       onCloseClick={close}
+                       position={{lat: coords[i].latitude, lng: coords[i].longitude}}>
+                         <div>
+                             {coords[i].fullness == null ? '' : 'Fullness :'+coords[i].fullness}
+                         </div>
+                       </InfoWindow> : <></>}
+                     </Marker>
   }
 
   return markers;
@@ -60,6 +79,7 @@ function generatePath(bins){
           path={paths}
           />;
 }
+
 function generateRoute(directionsService, directionsRenderer, bins){
   const waypoints = []
   let coords = bins.bins
@@ -73,7 +93,7 @@ function generateRoute(directionsService, directionsRenderer, bins){
       stopover: true,
     });
   
-}
+  }
 
   let end = coords.length -1 
   //This is the function that creates the route
@@ -89,7 +109,6 @@ function generateRoute(directionsService, directionsRenderer, bins){
   })
 }
 
-function MapComponent(bins) {
   const [map, setMap] = useState(/**@type google.maps.Map */(null))
 
   const { isLoaded } = useJsApiLoader({

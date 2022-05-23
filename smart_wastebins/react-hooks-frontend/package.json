@@ -6,6 +6,8 @@
     "@react-google-maps/api": "^2.10.3",
     "axios": "^0.27.2",
     "global": "^4.4.0",
+    "google-map-react": "^2.1.10",
+    "google-maps-react": "^2.0.6",
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "react-scripts": "^5.0.1",
