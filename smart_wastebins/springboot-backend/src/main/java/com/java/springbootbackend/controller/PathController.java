@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @CrossOrigin("*")
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
@@ -19,9 +22,16 @@ public class PathController {
     @GetMapping
     public Pair<Double, List<IMappable>> getPath(
             @RequestParam("latitude") double x,
-            @RequestParam("longitude") double y
+            @RequestParam("longitude") double y,
+            @RequestParam("limit") Optional<Integer> limit
     ) {
-        Graph graph = new Graph(new ArrayList<>(data.getWasteBins()), new Coord(x, y));
-        return graph.shortestPath();
+        List<WasteBin> all = data.getWasteBins();
+        List<IMappable> bins;
+        if (limit.isPresent() && limit.get() >= 0) {
+            bins = all.stream().limit(limit.get()).collect(Collectors.toList());
+        } else {
+            bins = new ArrayList<>(all);
+        }
+        return new Graph(bins, new Coord(x, y)).shortestPath();
     }
 }
