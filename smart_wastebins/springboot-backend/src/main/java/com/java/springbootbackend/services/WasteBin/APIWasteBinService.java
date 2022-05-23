@@ -20,25 +20,28 @@ public class APIWasteBinService implements IWasteBinService {
     public List<WasteBin> getWasteBins() {
         try {
             JsonNode jsonWasteBins = getJsonFromAPI("assets");
-            return parseBins(jsonWasteBins);
+            List<WasteBin> bins = parseBins(jsonWasteBins);
+            JsonNode errors = getJsonFromAPI("alerts");
+            addErrors(bins, errors);
+            return bins;
         } catch (UnirestException e) {
             e.printStackTrace();
             return new ArrayList<>();
         }
     }
 
-    /**
-     * Gets wastebins-errors from bigbelly-API
-     *
-     * @return a list of {@link WasteBin} with errors returned from the API
-     */
-    public List<WasteBin> getWasteBinsErrors() {
-        try {
-            JsonNode jsonWasteBins = getJsonFromAPI("alerts");
-            return parseBins(jsonWasteBins);
-        } catch (UnirestException e) {
-            e.printStackTrace();
-            return new ArrayList<>();
+    private void addErrors(List<WasteBin> bins, JsonNode errors) {
+        //TODO ensure that the alerts connect to waste bins, assuming they exists
+        Map<Long, WasteBin> binMap = getWasteBinMap(bins);
+        ParsedAlerts alerts = new Gson().fromJson(errors.toString(), ParsedAlerts.class);
+        for (ParsedAlerts.Alerts a : alerts.alerts) {
+            if (!binMap.containsKey(a.serialNumber)) {
+                System.out.println("Waste-bin with id: " + a.serialNumber + " not present");
+            } else {
+                WasteBin bin = binMap.get(a.serialNumber);
+                bin.setAlertType(a.alertType);
+                bin.setAlertCategory(a.alertCategory);
+            }
         }
     }
 
@@ -60,25 +63,6 @@ public class APIWasteBinService implements IWasteBinService {
         }
     }
 
-    /**
-     * Parses JSON data into waste bins-alerts
-     *
-     * @param json {@link JsonNode} data to be parsed
-     * @return the list of parsed bin-alerts
-     */
-    private List<WasteBin> parseAlerts(JsonNode json) {
-        try {
-            ParsedAlerts object = new Gson().fromJson(json.toString(), ParsedAlerts.class);
-            List<WasteBin> bins = new ArrayList<>();
-            for (ParsedAlerts.Alerts info : object.alerts) {
-                bins.add(new WasteBin(info.Latitude, info.Longitude, 1, info.accountName, info.serialNumber, info.Description));
-            }
-            return bins;
-        } catch (RuntimeException e) {
-            e.printStackTrace();
-            return new ArrayList<>();
-        }
-    }
 
     /**
      * Parses JSON data into waste bins
@@ -135,7 +119,7 @@ public class APIWasteBinService implements IWasteBinService {
             private int accountId;
             private String accountName;
             private String alertType;
-            private int serialNumber;
+            private long serialNumber;
             private double Latitude;
             private int stationSerialNumber;
             private String Description;
