@@ -127,6 +127,7 @@ function generateRoute(directionsService, directionsRenderer, bins){
   //Here you tell the directionsRenderer which map it should draw on
   directionsRenderer.setMap(map)
 
+  console.log(bins)
   return (
     <div class="item_1">
       <GoogleMap
