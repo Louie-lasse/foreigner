@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { GoogleMap, Marker, useJsApiLoader, InfoWindow } from '@react-google-maps/api';
 import '../styling/FlexStylesheet.css';
 
-function MapComponent(bins, path) {
+function MapComponent(props) {
 
   const [openIndex, setOpenIndex] = useState(0);
   const [isOpen,setOpen] = useState(false);
@@ -41,28 +41,27 @@ function MapComponent(bins, path) {
     lng: 11.972899811393049
   };
 
-  const getMarkers = (path) => {
-    let coords = path.path;
+  const getMarkers = (bins) => {
     let markers = []
     const bigBellyIcon = {
       url: "https://bigbelly.com/wp-content/uploads/2020/09/Bigbelly-Website-Product-Page-Tiles-09-1.png", // url
       scaledSize: new window.google.maps.Size(50, 50), // scaled size
     };
-    for (let i = 1; i < coords.length -1; i++){
+    for (let i = 1; i < bins.length -1; i++){
       markers[i] = <Marker
                     key={i}
                     onClick={() => {
                       open(i)
                     }}
-                    position={{lat: coords[i].latitude, lng: coords[i].longitude}}
-                    label={{text: (i+1).toString(), color: "white", fontWeight:"bold" }}
+                    position={{lat: bins[i].latitude, lng: bins[i].longitude}}
+                    label={{text: bins[i].description, color: "black", fontWeight:"bold" }}
                     icon={bigBellyIcon}
                     >
                        {isOpen && openIndex === i ? <InfoWindow
                        onCloseClick={close}
-                       position={{lat: coords[i].latitude, lng: coords[i].longitude}}>
+                       position={{lat: bins[i].latitude, lng: bins[i].longitude}}>
                          <div>
-                             {coords[i].fullness == null ? '' : 'Fullness :'+coords[i].fullness}
+                             {bins[i].fullness == null ? '' : 'Fullness :'+bins[i].fullness}
                          </div>
                        </InfoWindow> : <></>}
                      </Marker>
@@ -71,13 +70,12 @@ function MapComponent(bins, path) {
   }
 
   const generateRoute = (path) => {
-    let coords = path.path; 
-    for (let i = 0; i < coords.length; i += 24){
+    for (let i = 0; i < path.length; i += 24){
       let waypoints = [];
       let j = 1;
-      while (j < 24 && i + j < coords.length -1){
+      while (j < 24 && i + j < path.length -1){
         waypoints.push({
-          location: {lat: coords[i+j].latitude, lng: coords[i+j].longitude},
+          location: {lat: path[i+j].latitude, lng: path[i+j].longitude},
           stopover: true
         })
         j++
@@ -86,8 +84,8 @@ function MapComponent(bins, path) {
       let directionsRenderer = new window.google.maps.DirectionsRenderer({suppressMarkers: true});
       directionsRenderer.setMap(map);
       directionsService.route({
-        origin: {lat: coords[j].latitude, lng: coords[j].longitude},
-        destination: {lat: coords[i+j].latitude, lng: coords[i+j].longitude},
+        origin: {lat: path[j].latitude, lng: path[j].longitude},
+        destination: {lat: path[i+j].latitude, lng: path[i+j].longitude},
         waypoints: waypoints,
         travelMode: window.google.maps.TravelMode.DRIVING
       })
@@ -106,8 +104,8 @@ function MapComponent(bins, path) {
         zoom={12}
         onLoad = {(map) => setMap(map)}
       >
-        {path.lenght ? getMarkers(path) : <></>}
-        {path.length ? generateRoute(path): <></>}
+        {props.bins ? getMarkers(props.bins) : <></>}
+        {props.path ? generateRoute(props.path): <></>}
       </GoogleMap>
     </div>
 
