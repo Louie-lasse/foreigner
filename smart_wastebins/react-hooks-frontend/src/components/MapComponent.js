@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { GoogleMap, Marker, useJsApiLoader, InfoWindow } from '@react-google-maps/api';
 import '../styling/FlexStylesheet.css';
 
-function MapComponent(path) {
+function MapComponent(bins, path) {
 
   const [openIndex, setOpenIndex] = useState(0);
   const [isOpen,setOpen] = useState(false);
@@ -106,8 +106,8 @@ function MapComponent(path) {
         zoom={12}
         onLoad = {(map) => setMap(map)}
       >
-        {getMarkers(path)}
-        {generateRoute(path)}
+        {path.lenght ? getMarkers(path) : <></>}
+        {path.length ? generateRoute(path): <></>}
       </GoogleMap>
     </div>
 
