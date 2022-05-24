@@ -17,7 +17,7 @@ function App() {
 
   const [path,setPath] = useState([]);
 
-  useEffect(() => {console.log('use');BinService.getAllBins().then((response) => {
+  useEffect(() => {BinService.getAllBins().then((response) => {
     setBins(response.data);
     setLoaded(true);
   })}, []);
