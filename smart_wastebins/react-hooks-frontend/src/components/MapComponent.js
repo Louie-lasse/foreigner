@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { GoogleMap, LoadScript, Marker, Polyline, useJsApiLoader, InfoWindow } from '@react-google-maps/api';
+import { GoogleMap, Marker, useJsApiLoader, InfoWindow } from '@react-google-maps/api';
 import '../styling/FlexStylesheet.css';
 
-function MapComponent(bins) {
+function MapComponent(path) {
 
   const [openIndex, setOpenIndex] = useState(0);
   const [isOpen,setOpen] = useState(false);
@@ -41,8 +41,8 @@ function MapComponent(bins) {
     lng: 11.972899811393049
   };
 
-  const getMarkers = (bins) => {
-    let coords = bins.bins;
+  const getMarkers = (path) => {
+    let coords = path.path;
     let markers = []
     const bigBellyIcon = {
       url: "https://bigbelly.com/wp-content/uploads/2020/09/Bigbelly-Website-Product-Page-Tiles-09-1.png", // url
@@ -70,53 +70,33 @@ function MapComponent(bins) {
     return markers;
   }
 
-  const generatePath = (bins) => {
-    let coords = bins.bins
-    if (coords.length === 0){
-      return <></>
-    } 
-    let paths = []
-    let i = 0;
-    while (i < coords.length){
-      let coord = coords[i];
-      paths[i] = {lat: coord.latitude, lng: coord.longitude}
-      i++;
+  const generateRoute = (path) => {
+    let coords = path.path; 
+    for (let i = 0; i < coords.length; i += 24){
+      let waypoints = [];
+      let j = 1;
+      while (j < 24 && i + j < coords.length -1){
+        waypoints.push({
+          location: {lat: coords[i+j].latitude, lng: coords[i+j].longitude},
+          stopover: true
+        })
+        j++
+      }
+      const directionsService = new window.google.maps.DirectionsService();
+      let directionsRenderer = new window.google.maps.DirectionsRenderer({suppressMarkers: true});
+      directionsRenderer.setMap(map);
+      directionsService.route({
+        origin: {lat: coords[j].latitude, lng: coords[j].longitude},
+        destination: {lat: coords[i+j].latitude, lng: coords[i+j].longitude},
+        waypoints: waypoints,
+        travelMode: window.google.maps.TravelMode.DRIVING
+      })
+      .then((response) => {
+        //This is the function that draws the route
+        directionsRenderer.setDirections(response);
+      })
     }
-    return <Polyline
-            path={paths}
-            />;
   }
-
-  const generateRoute = (directionsService, directionsRenderer, bins) => {
-    const waypoints = []
-    let coords = bins.bins
-    if (coords.length === 0){
-      return <></>
-    } 
-
-    for (let i = 1; i < coords.length; i++) {
-      waypoints.push({
-        location: {lat: coords[i].latitude, lng: coords[i].longitude},
-        stopover: true,
-      });
-    }
-    //This is the function that creates the route
-    directionsService.route({
-      origin: {lat: coords[0].latitude, lng: coords[0].longitude},
-      destination: {lat: coords[0].latitude, lng: coords[0].longitude},
-      waypoints: waypoints,
-      travelMode: window.google.maps.TravelMode.DRIVING
-    })
-    .then((response) => {
-      //This is the function that draws the route
-      directionsRenderer.setDirections(response);
-    })
-  }
-  const directionsService = new window.google.maps.DirectionsService
-  //supressMarkers disables the markers from directionsRenderer since we want to use our own.
-  const directionsRenderer = new window.google.maps.DirectionsRenderer({suppressMarkers: true});
-  //Here you tell the directionsRenderer which map it should draw on
-  directionsRenderer.setMap(map)
 
   return (
     <div class="item_1">
@@ -126,11 +106,8 @@ function MapComponent(bins) {
         zoom={12}
         onLoad = {(map) => setMap(map)}
       >
-        {getMarkers(bins)}
-        {//generateRoute needs a directionService, and a directionsRenderer in order to
-        //set up the route and then draw it.
-        }
-        {bins.bins.length > 25? generatePath(bins) : generateRoute(directionsService, directionsRenderer, bins)}
+        {getMarkers(path)}
+        {generateRoute(path)}
       </GoogleMap>
     </div>
 
