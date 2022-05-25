@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public abstract class WasteBinService {
 
-    private static final ServiceType defaultImplementation = ServiceType.RANDOM;
+    private static final ServiceType defaultImplementation = ServiceType.API;
 
     public static IWasteBinService getService() {
         return getService(defaultImplementation);
