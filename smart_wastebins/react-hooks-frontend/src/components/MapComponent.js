@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import { GoogleMap, Marker, useJsApiLoader, InfoWindow } from '@react-google-maps/api';
 import '../styling/FlexStylesheet.css';
+import Button from '../styling/ButtonStyling';
 
 function MapComponent(props) {
+
+  const directions = [];
 
   const [openIndex, setOpenIndex] = useState(0);
   const [isOpen,setOpen] = useState(false);
@@ -61,7 +64,7 @@ function MapComponent(props) {
                        onCloseClick={close}
                        position={{lat: bins[i].latitude, lng: bins[i].longitude}}>
                          <div>
-                             {bins[i].fullness == null ? '' : 'Fullness :'+bins[i].fullness}
+                          fullness {bins[i].fullness}
                          </div>
                        </InfoWindow> : <></>}
                      </Marker>
@@ -93,6 +96,7 @@ function MapComponent(props) {
         //This is the function that draws the route
         directionsRenderer.setDirections(response);
       })
+      directions.push(directionsRenderer);
     }
   }
 
