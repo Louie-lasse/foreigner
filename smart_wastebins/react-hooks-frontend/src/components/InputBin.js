@@ -1,6 +1,5 @@
 import React from 'react';
 import Button from "../styling/ButtonStyling";
-import flex from '../styling/FlexStylesheet.css';
 
 
 const InputBin = ({onSubmit}) => {
@@ -8,7 +7,6 @@ const InputBin = ({onSubmit}) => {
     const handleSubmit=(e)=>{
         e.preventDefault();
         const nBins = e.target.numberOfBins.value;
-        console.log("Number of bins: " + nBins);
         onSubmit(nBins);
       }
 
@@ -18,7 +16,7 @@ const InputBin = ({onSubmit}) => {
            <form onSubmit={handleSubmit}>
                <input
                     onKeyPress={(event) => {
-                        if (!/[1-9]/.test(event.key)) {
+                        if (!/[0-9]/.test(event.key)) {
                         event.preventDefault();
                         }
                     }}
