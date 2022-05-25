@@ -8,6 +8,8 @@ public class WasteBin implements IMappable {
     private double latitude;
     private double longitude;
     private String description;
+    private String alertCategory = "NONE";
+    private String alertType = "";
 
     public WasteBin(double latitude, double longitude, int fullness, String groupName, long serialNumber, String description) {
         setFullness(fullness);
@@ -60,6 +62,22 @@ public class WasteBin implements IMappable {
         if (fullness >= 0 && fullness <= 10) {
             this.fullness = fullness;
         }
+    }
+
+    public void setAlertCategory(String alertCategory) {
+        this.alertCategory = alertCategory;
+    }
+
+    public void setAlertType(String alertType) {
+        this.alertType = alertType;
+    }
+
+    public String getAlertCategory() {
+        return alertCategory;
+    }
+
+    public String getAlertType() {
+        return alertType;
     }
 
     @Override
