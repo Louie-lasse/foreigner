@@ -13,6 +13,8 @@ class RandomWasteBinService implements IWasteBinService {
 
     private final static int seed = 0;//change seed to debug
 
+    private final static int nBins = 7;
+
     private Random random;
 
     protected RandomWasteBinService() {
@@ -31,7 +33,7 @@ class RandomWasteBinService implements IWasteBinService {
         if (Objects.isNull(wasteBins)) {
             random = new Random(seed);
             wasteBins = new ArrayList<>();
-            for (int i = 0; i < 15; i++) {
+            for (int i = 0; i < nBins; i++) {
                 double x, y;
                 int fullness;
                 long serialNumber;
@@ -41,11 +43,11 @@ class RandomWasteBinService implements IWasteBinService {
                 StringBuilder sb = new StringBuilder();
                 x = randomDouble(57.634763, 57.761942);
                 y = randomDouble(11.889930, 12.053338);
-                fullness = randomInt(0,10);
-                groupName = groups[randomInt(0,3)];
+                fullness = randomInt(0, 10);
+                groupName = groups[randomInt(0, 3)];
                 serialNumber = randomInt(0, 20000000);
                 for (int j = 0; j < 15; j++) {
-                    int rand = randomInt(0,25);
+                    int rand = randomInt(0, 25);
                     sb.append(alphabet.charAt(rand));
                 }
                 description = sb.toString();
