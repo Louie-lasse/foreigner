@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 @CrossOrigin("*")
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @RestController
-@RequestMapping("/api/v1/path")
+@RequestMapping("/api/v1/path/{method}")
 public class PathController {
 
     private final Data data = Data.getInstance();
@@ -23,8 +23,20 @@ public class PathController {
     public Pair<Double, List<IMappable>> getPath(
             @RequestParam("latitude") double x,
             @RequestParam("longitude") double y,
-            @RequestParam("limit") Optional<Integer> limit
-    ) {
+            @RequestParam("limit") Optional<Integer> limit,
+            @RequestParam("bins") Optional<WasteBin[]> bins,
+            @PathVariable String method) {
+        if (method.equals("bins")) {
+            return pathFromBins(bins);
+        }
+        return pathFromSpecs(x, y, limit);
+    }
+
+    private Pair<Double, List<IMappable>> pathFromBins(Optional<WasteBin[]> bins) {
+        throw new RuntimeException("not implemented");
+    }
+
+    private Pair<Double, List<IMappable>> pathFromSpecs(double x, double y, Optional<Integer> limit) {
         List<WasteBin> all = data.getWasteBins();
         List<IMappable> bins;
         if (limit.isPresent() && limit.get() >= 0) {
