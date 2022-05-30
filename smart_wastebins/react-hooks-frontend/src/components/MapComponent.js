@@ -60,14 +60,17 @@ function MapComponent(props) {
                       open(i)
                     }}
                     position={{lat: bins[i].latitude, lng: bins[i].longitude}}
-                    label={{text: bins[i].description, color: "black", fontWeight:"bold" }}
+                    //label={{text: bins[i].description, color: "black", fontWeight:"bold" }}
                     icon={icon}
                     >
                        {isOpen && openIndex === i ? <InfoWindow
                        onCloseClick={close}
                        position={{lat: bins[i].latitude, lng: bins[i].longitude}}>
                          <div>
-                          fullness {bins[i].fullness}
+                           <div>
+                             fyllnadsgrad: {bins[i].fullness}
+                           </div>
+                          <button>{marked ? 'ta bort från rutt' : 'lägg till i rutt'}</button>
                          </div>
                        </InfoWindow> : <></>}
                      </Marker>
