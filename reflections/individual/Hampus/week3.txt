@@ -10,12 +10,11 @@ A->B.  -
 
 What is my contribution towards the team’s use of Scrum?
 A. I have attended two meetings where we planned this weeks sprint and implemented user stories.
-B. I think that we had a successfull sprint and am satisfied with my contribution.
+B. I think that I had a successfull sprint and am satisfied with my contribution.
 A->B. -
 
 What is my contribution towards the team’s deliveries?
-A. I have attended a metting with the customer where we discussed how they want the result to be.
-B. The customer couldn't bring their boss which have a better knowledge of the project.
-A->B. After the easter-break we will have a meeting with the customer and their boss.
-
-*customer ska vara det ordet jag inte kommer på just nu (ej scrum master, nästa nivå)
+A. I have attended a metting with the customer where we discussed how they want the result to be. I have created an
+environment to develop in and pushed a very simple runable code with a Wastebin-class which prints data about the wastebins.
+B. The stake holder couldn't bring their boss which have a better knowledge of the project.
+A->B. After the easter we will have a meeting with the customer and their boss.

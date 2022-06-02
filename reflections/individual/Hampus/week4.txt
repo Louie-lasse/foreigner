@@ -1,0 +1,24 @@
+What do I want to learn or understand better?
+A. It's easter this week but some group-members still wanted a sprint. Becuase of 
+easter I have not been able to contribute much. The working members this week have
+made a major overhaul and the project have a frontend-directory in JavaScript with React.js and a
+backend-directory in Java with Springboot. I am not familiar with Springboot, JavaScript nor
+React.js so I am motivated to learn these new tools. 
+B. I want to learn and understand Springboot, JavaScript and React.js.
+A->B. By researching about the new tools and 
+
+How can I help someone else, or the entire team, to learn something new?
+A. 
+B. 
+A->B. 
+
+What is my contribution towards the team’s use of Scrum?
+A. 
+B. 
+A->B. 
+
+
+What is my contribution towards the team’s deliveries?
+A. 
+B. 
+A->B. 
