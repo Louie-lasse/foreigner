@@ -22,7 +22,9 @@ function MapComponent(props) {
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyABB237sW4ZMIll6O3meWhgUL7cAROCubY"
+    // Application won't render map without google maps api key. Removed for
+    // security reasons.
+    googleMapsApiKey: "INSERT WORKING GOOGLE MAPS API"
   })
 
   if (!isLoaded) {
