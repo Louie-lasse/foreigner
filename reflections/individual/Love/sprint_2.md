@@ -1,4 +1,4 @@
-# Week 2
+# Sprint 2
 
 ## What do I want to learn or understand better?
 

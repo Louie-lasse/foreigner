@@ -6,7 +6,7 @@ const InputBin = ({onSubmit}) => {
 
     const handleSubmit=(e)=>{
         e.preventDefault();
-        const nBins = e.target.numberOfBins.value;
+        const nBins = e.target.amount.value;
         onSubmit(nBins);
       }
 
@@ -14,14 +14,9 @@ const InputBin = ({onSubmit}) => {
 
         <div className = "container" class="item_2">
            <form onSubmit={handleSubmit}>
-               <input
-                    onKeyPress={(event) => {
-                        if (!/[0-9]/.test(event.key)) {
-                        event.preventDefault();
-                        }
-                    }}
-                    name = "numberOfBins"
-                />
+                Antal papperskorgar : <input type="text" name="amount"/>
+                Start : <input type="text" name="start"/>
+                Slut : <input type="text" name="end"/>
                 <Button theme= "lightBlue"  >
                     Display Bins
                 </Button>
