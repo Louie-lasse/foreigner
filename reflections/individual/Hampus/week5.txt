@@ -8,17 +8,24 @@ A->B. I will ask for help with the things I don't know how to do
 or can find on Google/Youtube.
 
 How can I help someone else, or the entire team, to learn something new?
-A. I have read about how to connect the Springboot-API to 
-B. 
-A->B. 
+A. I have read about how to connect the Springboot-API to JavaScript. It
+was harder than I and the group thought. I'm starting to understand
+but I need to use next sprint to have time to implement. 
+B. I have asked group members if they know but it was harder than everyone
+thougt.
+A->B. I will ask classmates for help. 
 
 What is my contribution towards the team’s use of Scrum?
-A. 
-B. 
-A->B. 
+A. I have attended meeting with group and stake holder.Everone is excited to 
+learn and use new tools even if there is not much experience in the group.
+B. We need more KPI
+A->B. Discuss with the group to use more KPI
 
 
 What is my contribution towards the team’s deliveries?
-A. 
-B. 
-A->B. 
+A. I have researched and asked how to to connect Springboot-API
+to our Javascript-directory. I am ready to implement a user story
+with testable features next sprint.
+B. I would like to have a user story implemented this week but the research
+took a lot of time and it was hard. Next week I will implement the user story.
+A->B. Continuing learning and implement the input-feature next week.
