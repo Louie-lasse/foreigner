@@ -6,7 +6,7 @@ const InputBin = ({onSubmit}) => {
 
     const handleSubmit=(e)=>{
         e.preventDefault();
-        const nBins = e.target.numberOfBins.value;
+        const nBins = e.target.amount.value;
         onSubmit(nBins);
       }
 
