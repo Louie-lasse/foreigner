@@ -1,20 +1,26 @@
 What do I want to learn or understand better?
-A. 
-B. 
-A->B. 
+A. I have learned how to connect to the stake holders
+API and also how to parse the JSON-file to Java-objects
+B. I want to understand Springboot better.
+A->B. Continuing working with springboot and research about the tool.
 
 How can I help someone else, or the entire team, to learn something new?
-A. 
-B. 
-A->B. 
+A. I have helped group members understand how to connect to the stake
+holders API and also how to parse JSON to Java-objects.
+B. Continuing collaborate with my group and help each others.
+A->B. Ask for help if I need to and ask if others need help.
 
 What is my contribution towards the team’s use of Scrum?
-A. 
-B. 
-A->B. 
+A. I have attended meeting and did last weeks user story which
+had a lot of research. I also talked with the group that many
+user stories are hard because no one is experienced with the tools.
+I also did a user story I felt more confident in.
+B. Better estimation in user stories, research takes a lot of time.
+A->B. Try to include research in effort estimation better.
 
 
 What is my contribution towards the team’s deliveries?
-A. 
-B. 
-A->B. 
+A. I have implemented two large user stories, conected to API
+and parsing data.
+B. Continue contribute to the project.
+A->B. Sprint plan and divide user stories to persons.

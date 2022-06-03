@@ -1,20 +1,28 @@
 What do I want to learn or understand better?
-A. 
-B. 
-A->B. 
+A. I've figured out how to connect our Springboot-APi to
+our frontend and also how React.js-components work and theyre
+heritage tree-structure. 
+B. I want to learn more how to work with React and Springboot.
+A->B. Continuing research and implementing user stories.
 
 How can I help someone else, or the entire team, to learn something new?
-A. 
-B. 
-A->B. 
+A. I have helped a group member understand the Springboot-connection
+to the frontend. 
+B. I would like to continue helping my teammates with things I know
+and learn.
+A->B. Ask them if they need help and have meetings with them.
 
 What is my contribution towards the team’s use of Scrum?
-A. 
-B. 
-A->B. 
+A. I have attended meeting where we sprint-plan and do a 
+team-reflection.
+B. Continuing having group meetings and comminicate with each other.
+A->B. Propose for meetings if I think we need one.
 
 
 What is my contribution towards the team’s deliveries?
-A. 
-B. 
-A->B. 
+A. I have implemented user stories and got a applause for
+a very good implementation from my group.
+B. I want to continuing contribute good implementation to
+the project. Though the tools are new I don't want research to
+take as much time as it has done.
+A->B. With next sprint planning, do a user story I feel confident in.

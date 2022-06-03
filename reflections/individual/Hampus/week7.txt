@@ -1,20 +1,27 @@
 What do I want to learn or understand better?
-A. 
-B. 
-A->B. 
+A. I have read the manual of the stake holders API and
+tried to implement it in Java but it does not fully work. I
+have talked to the stake holder in a meeting about it.
+B. I want to learn how to implement the stake holders APi
+in out backend.
+A->B. Continuing reading the manual, contact customer support if I need to and
+talk with my group.
 
 How can I help someone else, or the entire team, to learn something new?
-A. 
-B. 
-A->B. 
+A. I have helped a team mate trying understand the manual of the stake
+holders API with me. We have also talked with the stake holder about the
+API-problems in a meeting, they said to contact support.
+B. We will togheter try to make a correct implementation next sprint.
+A->B. Contact support if we need to and search for more examples on internet.
 
 What is my contribution towards the team’s use of Scrum?
-A. 
-B. 
-A->B. 
+A. Meeting with group and stake holder. Used KPI and sprint planning.
+B. Continuing meeting with the group and stake holder.
+A->B. Call for meetings and talk with the group.
 
 
 What is my contribution towards the team’s deliveries?
-A. 
-B. 
-A->B. 
+A. Talked with the stake holder about problems about connecting
+to their API, read the manual and research and searched for examples.
+B. I want to make a corrct implementation next sprint.
+A->B. Contact support if we need to.

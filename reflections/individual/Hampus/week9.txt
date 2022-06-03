@@ -1,20 +1,33 @@
 What do I want to learn or understand better?
-A. 
-B. 
-A->B. 
+A. I semi-understand JavaScript-syntax and React.js. I do not
+have a good understaning of SpringBoot and it seems that we
+have used SpringBoot wrongly in the project when I talk
+with classmates.
+B. I want a better understanding of Springboot and React.
+I didn't fully have the time to properly research about the
+tools and understand them.
+A->B. Continuing to research and work with React and Springboot
+in my own projects now that the course has ended. The stake holder
+is open to continuing working with us so maybe I will have the time
+to implement and understand it then.
 
 How can I help someone else, or the entire team, to learn something new?
-A. 
-B. 
-A->B. 
+A. This was the last sprint, I have helped people understand the
+parts that are mine.
+B. There will not be more sprints but we can still help each other
+in other projects or courses.
+A->B. As a group, we can contuinue to talking to each other and help
+each other.
 
 What is my contribution towards the team’s use of Scrum?
-A. 
-B. 
-A->B. 
+A. I have had meeting with group and stake holder.
+B. I will present the project with my group next week for my examiner.
+A->B. Present the project to the examiner.
 
 
 What is my contribution towards the team’s deliveries?
-A. 
-B. 
-A->B. 
+A. I have implemented user stories and showed/talked
+about our project to classmates.
+B. I will present the project with my group next week for my examiner.
+Then I will also write a report about our project.
+A->B. Present the project to the examiner and write the report.
