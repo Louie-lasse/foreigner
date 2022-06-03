@@ -1,10 +1,14 @@
 What do I want to learn or understand better?
-A. 
-B. 
-A->B. 
+A. I need to learn how React.js-compoentns work and how to
+collect data from our Springboot-API with React.js
+B. The user story I worked with was harder than I thought for
+me to do so I had to research a lot this week. I will take the
+user story next week also.
+A->B. I will ask for help with the things I don't know how to do
+or can find on Google/Youtube.
 
 How can I help someone else, or the entire team, to learn something new?
-A. 
+A. I have read about how to connect the Springboot-API to 
 B. 
 A->B. 
 

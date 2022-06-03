@@ -5,20 +5,25 @@ made a major overhaul and the project have a frontend-directory in JavaScript wi
 backend-directory in Java with Springboot. I am not familiar with Springboot, JavaScript nor
 React.js so I am motivated to learn these new tools. 
 B. I want to learn and understand Springboot, JavaScript and React.js.
-A->B. By researching about the new tools and 
+A->B. By researching about the new tools.
 
 How can I help someone else, or the entire team, to learn something new?
-A. 
-B. 
-A->B. 
+A. Becuase of easter, the majority of the group including me have not been able to
+do much work this week. 
+B. I think that the tools are new for pretty much everyone except for one. I want to learn the
+new tools and hopefully we can share what we learn with the group so everyone knows how to handle
+the tools.
+A->B. Research about the tools, help eachother and ask questions when you don't understand.
 
 What is my contribution towards the team’s use of Scrum?
-A. 
-B. 
-A->B. 
+A. I have attended a meeting about sprintplaning, a few of the group wanted to work a sprint this week despite
+easter. 
+B. Next week I will be able to contribute more when it's not easter. As a srum master I will check that everyone
+is okay with the new directories and tools that was implemented this week.
+A->B. Ask everyone how they feel about the environment on sprint planning-meeting.
 
 
 What is my contribution towards the team’s deliveries?
-A. 
-B. 
-A->B. 
+A. I have not been able to contribute because of easter.
+B. Next week I will be able to contribute. I will have to learn the new tools and environments.
+A->B. I will do suitable user stories and research on how to implement said user stories.
