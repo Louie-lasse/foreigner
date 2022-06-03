@@ -45,23 +45,23 @@ function MapComponent(props) {
 
   const getMarkers = (bins, marked) => {
     let markers = [];
-    /*
     const bigBellyIcon = {
       url: "https://bigbelly.com/wp-content/uploads/2020/09/Bigbelly-Website-Product-Page-Tiles-09-1.png", // url
       scaledSize: new window.google.maps.Size(50, 50), // scaled size
     };
-    */
+    /*
     let icon = marked ? {url: "https://cdn.picpng.com/google/google-map-marker-red-peg-77453.png",scaledSize: new window.google.maps.Size(30, 50)} : 
       {url: "https://icon-library.com/images/google-maps-icon-vector/google-maps-icon-vector-7.jpg",scaledSize: new window.google.maps.Size(30, 50)}
+    */
+    
     for (let i = 0; i < bins.length; i++){
-      markers[i] = <Marker
+    markers[i] = <Marker
                     key={i}
                     onClick={() => {
                       open(i)
                     }}
                     position={{lat: bins[i].latitude, lng: bins[i].longitude}}
-                    //label={{text: bins[i].description, color: "black", fontWeight:"bold" }}
-                    icon={icon}
+                    icon={bigBellyIcon}
                     >
                        {isOpen && openIndex === i ? <InfoWindow
                        onCloseClick={close}
