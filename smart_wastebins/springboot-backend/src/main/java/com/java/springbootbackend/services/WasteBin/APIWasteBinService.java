@@ -11,6 +11,8 @@ import java.util.*;
 
 public class APIWasteBinService implements IWasteBinService {
 
+    private static final String apiToken = "INPUT API TOKEN";
+
     /**
      * Gets waste bins from bigbelly-API
      *
@@ -92,7 +94,7 @@ public class APIWasteBinService implements IWasteBinService {
      */
     private JsonNode getJsonFromAPI(String type) throws UnirestException {
         Map<String, String> headers = new HashMap<>();
-        headers.put("X-Token", "MtaHVvy974562ZbrKRSX");
+        headers.put("X-Token", apiToken);
         headers.put("Cache-Control", "no-cache");
 
         Map<String, Object> query = new HashMap<>();
